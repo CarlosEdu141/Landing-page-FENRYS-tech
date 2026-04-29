@@ -1,31 +1,31 @@
 export const services = [
   {
-    icon: '🖥️',
+    iconKey: 'web',
     title: 'Sistemas Web',
     desc: 'Plataformas web completas, painéis administrativos, ERPs e CRMs sob medida para o seu negócio crescer.',
   },
   {
-    icon: '📱',
+    iconKey: 'mobile',
     title: 'Apps Mobile',
     desc: 'Aplicativos nativos e híbridos para iOS e Android com experiências fluídas e design moderno.',
   },
   {
-    icon: '🤖',
+    iconKey: 'ai',
     title: 'Inteligência Artificial',
     desc: 'Integração de IA generativa, chatbots inteligentes, automação com LLMs e análise preditiva de dados.',
   },
   {
-    icon: '🛒',
+    iconKey: 'ecommerce',
     title: 'E-commerce',
     desc: 'Lojas virtuais de alta performance com integrações de pagamento, logística e gestão de estoque.',
   },
   {
-    icon: '⚡',
+    iconKey: 'api',
     title: 'APIs & Integrações',
     desc: 'Conectamos sistemas, automatizamos fluxos de trabalho e integramos ferramentas do seu negócio.',
   },
   {
-    icon: '☁️',
+    iconKey: 'cloud',
     title: 'Cloud & DevOps',
     desc: 'Infraestrutura escalável na nuvem, CI/CD, monitoramento e deploys automatizados com zero downtime.',
   },

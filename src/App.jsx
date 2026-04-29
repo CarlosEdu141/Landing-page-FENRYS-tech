@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FloatingCTA from './components/FloatingCTA';
 
 function App() {
   return (
@@ -18,17 +19,18 @@ function App() {
       <Hero />
       <Ticker />
       <About />
-      <hr className="section-divider" />
+      <div className="section-divider" role="separator" />
       <Services />
-      <hr className="section-divider" />
+      <div className="section-divider" role="separator" />
       <Process />
-      <hr className="section-divider" />
+      <div className="section-divider" role="separator" />
       <Projects />
-      <hr className="section-divider" />
+      <div className="section-divider" role="separator" />
       <Testimonials />
-      <hr className="section-divider" />
+      <div className="section-divider" role="separator" />
       <Contact />
       <Footer />
+      <FloatingCTA />
     </LogoAnimProvider>
   );
 }

@@ -11,7 +11,7 @@
 .orb1 {
   position: absolute;
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(79,124,255,0.09) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(107,128,231,0.09) 0%, transparent 65%);
   border-radius: 50%;
   top: -150px; right: -100px;
   pointer-events: none;
@@ -21,7 +21,7 @@
 .orb2 {
   position: absolute;
   width: 450px; height: 450px;
-  background: radial-gradient(circle, rgba(124,63,255,0.07) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(78,90,146,0.07) 0%, transparent 65%);
   border-radius: 50%;
   bottom: 50px; left: 100px;
   pointer-events: none;
@@ -69,8 +69,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(79,124,255,0.1);
-  border: 1px solid rgba(79,124,255,0.35);
+  background: rgba(107,128,231,0.1);
+  border: 1px solid rgba(107,128,231,0.35);
   border-radius: 2px;
   padding: 0.4rem 1rem;
   font-size: 0.75rem;

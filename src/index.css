@@ -6,19 +6,19 @@
   --navy: #08091a;
   --navy-mid: #0d1030;
   --navy-card: #0f1225;
-  --blue: #4f7cff;
-  --blue-light: #7da4ff;
-  --blue-dim: rgba(79,124,255,0.15);
-  --purple: #7c3fff;
-  --purple-light: #a78bfa;
+  --blue: #6B80E7;
+  --blue-light: #9AADF2;
+  --blue-dim: rgba(107,128,231,0.15);
+  --purple: #4E5A92;
+  --purple-light: #7A88C0;
   --accent: #00d4ff;
   --silver: #c8d8f0;
   --silver-dim: #6a8aaf;
   --white: #eef2ff;
-  --border: rgba(79,124,255,0.14);
-  --border-hover: rgba(79,124,255,0.4);
+  --border: rgba(107,128,231,0.14);
+  --border-hover: rgba(107,128,231,0.4);
   --navbar-scroll-bg: rgba(8,9,26,0.92);
-  --hero-img-opacity: 0.28;
+  --hero-img-opacity: 0.38;
   --input-bg: rgba(255,255,255,0.04);
   --section-overlay: rgba(13,16,48,0.4);
 }
@@ -27,20 +27,20 @@
   --navy: #f0f4ff;
   --navy-mid: #e6ecff;
   --navy-card: #ffffff;
-  --blue: #3d6ee8;
-  --blue-light: #4f7cff;
-  --blue-dim: rgba(61,110,232,0.12);
-  --purple: #6a2ee8;
-  --purple-light: #7c3fff;
+  --blue: #5A6ED4;
+  --blue-light: #6B80E7;
+  --blue-dim: rgba(107,128,231,0.12);
+  --purple: #4E5A92;
+  --purple-light: #6B7AB5;
   --accent: #0092bb;
   --silver: #1a3157;
   --silver-dim: #5a728a;
   --white: #09172f;
-  --border: rgba(61,110,232,0.18);
-  --border-hover: rgba(61,110,232,0.45);
+  --border: rgba(107,128,231,0.18);
+  --border-hover: rgba(107,128,231,0.45);
   --navbar-scroll-bg: rgba(240,244,255,0.96);
   --hero-img-opacity: 0.1;
-  --input-bg: rgba(61,110,232,0.07);
+  --input-bg: rgba(107,128,231,0.07);
   --section-overlay: rgba(200,215,255,0.18);
 }
 
@@ -60,8 +60,8 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(79,124,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79,124,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(107,128,231,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,128,231,0.03) 1px, transparent 1px);
   background-size: 64px 64px;
   pointer-events: none;
   z-index: 0;
@@ -69,8 +69,8 @@ body::before {
 
 [data-theme="light"] body::before {
   background-image:
-    linear-gradient(rgba(61,110,232,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(61,110,232,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(107,128,231,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,128,231,0.07) 1px, transparent 1px);
 }
 
 h1,h2,h3,h4 { font-family: 'Orbitron', monospace; line-height: 1.15; }
@@ -79,7 +79,7 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Rajdhani', 
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
-::-webkit-scrollbar-thumb { background: rgba(124,63,255,0.32); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(78,90,146,0.32); border-radius: 3px; }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
 .section-padding { padding: 7rem 0; }
@@ -138,11 +138,11 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Rajdhani', 
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 28px rgba(79,124,255,0.28);
+  box-shadow: 0 4px 28px rgba(107,128,231,0.28);
   border: none;
   cursor: pointer;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(79,124,255,0.45); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(107,128,231,0.45); }
 
 .btn-secondary {
   display: inline-flex;
@@ -161,6 +161,22 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Rajdhani', 
   transition: all 0.2s;
   cursor: pointer;
 }
-.btn-secondary:hover { border-color: var(--blue); color: var(--blue-light); background: rgba(79,124,255,0.07); }
+.btn-secondary:hover { border-color: var(--blue); color: var(--blue-light); background: rgba(107,128,231,0.07); }
 
-.section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  position: relative;
+}
+.section-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: var(--blue);
+  box-shadow: 0 0 10px rgba(107,128,231,0.8);
+}

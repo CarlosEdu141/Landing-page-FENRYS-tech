@@ -69,6 +69,18 @@ function ProjectCard({ project, delay, visible }) {
       onMouseLeave={handleMouseLeave}
     >
       <div className={styles.thumb} style={{ background: project.gradient }}>
+        <div className={styles.dotGrid}></div>
+        <div className={styles.mockUI}>
+          <div className={styles.mockTopBar}></div>
+          <div className={styles.mockContent}>
+            <div className={styles.mockSidebar}></div>
+            <div className={styles.mockMain}>
+              <div className={styles.mockLine}></div>
+              <div className={styles.mockLine} style={{ width: '70%' }}></div>
+              <div className={styles.mockLine} style={{ width: '85%' }}></div>
+            </div>
+          </div>
+        </div>
         <span className={styles.emoji}>{project.emoji}</span>
         <span className={styles.tagTop}>{project.tag}</span>
       </div>

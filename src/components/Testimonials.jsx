@@ -25,7 +25,9 @@ export default function Testimonials() {
               <div className={styles.stars}>★★★★★</div>
               <p className={styles.text}>{t.text}</p>
               <div className={styles.client}>
-                <div className={styles.avatar}>{t.initials}</div>
+                <div className={styles.avatarWrap}>
+                  <div className={styles.avatar}>{t.initials}</div>
+                </div>
                 <div>
                   <div className={styles.name}>{t.name}</div>
                   <div className={styles.role}>{t.role}</div>

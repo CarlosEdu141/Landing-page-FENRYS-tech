@@ -34,7 +34,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(79,124,255,0.05) 0%, transparent 55%);
+  background: linear-gradient(135deg, rgba(107,128,231,0.05) 0%, transparent 55%);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -42,22 +42,25 @@
 .card:hover {
   border-color: var(--border-hover);
   transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(79,124,255,0.08), 0 4px 20px rgba(124,63,255,0.08);
+  box-shadow: 0 16px 48px rgba(107,128,231,0.08), 0 4px 20px rgba(78,90,146,0.08);
 }
 
 .card:hover::before { opacity: 1; }
 
 .icon {
   width: 54px; height: 54px;
-  background: linear-gradient(135deg, rgba(79,124,255,0.18), rgba(124,63,255,0.18));
+  background: linear-gradient(135deg, rgba(107,128,231,0.18), rgba(78,90,146,0.18));
   border: 1px solid var(--border-hover);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
   margin-bottom: 1.4rem;
+  color: var(--blue);
+  transition: color 0.3s;
 }
+.icon svg { width: 26px; height: 26px; }
+.card:hover .icon { color: var(--accent); }
 
 .card h3 {
   font-family: 'Orbitron', monospace;
@@ -79,7 +82,7 @@
   position: absolute;
   bottom: 0; right: 0;
   width: 56px; height: 56px;
-  background: linear-gradient(135deg, transparent 50%, rgba(124,63,255,0.14));
+  background: linear-gradient(135deg, transparent 50%, rgba(78,90,146,0.14));
   border-top-left-radius: 56px;
 }
 

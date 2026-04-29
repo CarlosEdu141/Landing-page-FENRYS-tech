@@ -113,9 +113,9 @@ export function LogoAnimProvider({ children }) {
           ].join(', ');
           fly.style.transform = 'translate(-50%, -50%) rotate(360deg) scale(1.2)';
           fly.style.filter    = [
-            'drop-shadow(0 0 24px rgba(124,63,255,1))',
-            'drop-shadow(0 0 52px rgba(79,124,255,0.85))',
-            'drop-shadow(0 0 100px rgba(124,63,255,0.5))',
+            'drop-shadow(0 0 24px rgba(78,90,146,1))',
+            'drop-shadow(0 0 52px rgba(107,128,231,0.85))',
+            'drop-shadow(0 0 100px rgba(78,90,146,0.5))',
             'brightness(1.18)',
           ].join(' ');
 

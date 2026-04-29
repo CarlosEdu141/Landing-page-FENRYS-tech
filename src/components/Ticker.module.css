@@ -1,7 +1,7 @@
 .ticker {
-  background: linear-gradient(90deg, rgba(79,124,255,0.05), rgba(124,63,255,0.06), rgba(79,124,255,0.05));
-  border-top: 1px solid rgba(124,63,255,0.18);
-  border-bottom: 1px solid rgba(124,63,255,0.18);
+  background: linear-gradient(90deg, rgba(107,128,231,0.05), rgba(78,90,146,0.06), rgba(107,128,231,0.05));
+  border-top: 1px solid rgba(78,90,146,0.18);
+  border-bottom: 1px solid rgba(78,90,146,0.18);
   padding: 1rem 0;
   overflow: hidden;
   position: relative;
