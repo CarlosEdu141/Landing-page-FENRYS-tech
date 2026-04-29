@@ -1,0 +1,41 @@
+.ticker {
+  background: linear-gradient(90deg, rgba(79,124,255,0.05), rgba(124,63,255,0.06), rgba(79,124,255,0.05));
+  border-top: 1px solid rgba(124,63,255,0.18);
+  border-bottom: 1px solid rgba(124,63,255,0.18);
+  padding: 1rem 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.track {
+  display: flex;
+  animation: scroll 28s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+}
+
+.dot {
+  width: 4px; height: 4px;
+  background: var(--purple);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px var(--purple);
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

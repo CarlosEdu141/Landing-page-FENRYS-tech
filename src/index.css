@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #08091a;
+  --navy-mid: #0d1030;
+  --navy-card: #0f1225;
+  --blue: #4f7cff;
+  --blue-light: #7da4ff;
+  --blue-dim: rgba(79,124,255,0.15);
+  --purple: #7c3fff;
+  --purple-light: #a78bfa;
+  --accent: #00d4ff;
+  --silver: #c8d8f0;
+  --silver-dim: #6a8aaf;
+  --white: #eef2ff;
+  --border: rgba(79,124,255,0.14);
+  --border-hover: rgba(79,124,255,0.4);
+  --navbar-scroll-bg: rgba(8,9,26,0.92);
+  --hero-img-opacity: 0.28;
+  --input-bg: rgba(255,255,255,0.04);
+  --section-overlay: rgba(13,16,48,0.4);
+}
+
+[data-theme="light"] {
+  --navy: #f0f4ff;
+  --navy-mid: #e6ecff;
+  --navy-card: #ffffff;
+  --blue: #3d6ee8;
+  --blue-light: #4f7cff;
+  --blue-dim: rgba(61,110,232,0.12);
+  --purple: #6a2ee8;
+  --purple-light: #7c3fff;
+  --accent: #0092bb;
+  --silver: #1a3157;
+  --silver-dim: #5a728a;
+  --white: #09172f;
+  --border: rgba(61,110,232,0.18);
+  --border-hover: rgba(61,110,232,0.45);
+  --navbar-scroll-bg: rgba(240,244,255,0.96);
+  --hero-img-opacity: 0.1;
+  --input-bg: rgba(61,110,232,0.07);
+  --section-overlay: rgba(200,215,255,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79,124,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,124,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(rgba(61,110,232,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,110,232,0.07) 1px, transparent 1px);
+}
+
+h1,h2,h3,h4 { font-family: 'Orbitron', monospace; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; outline: none; font-family: 'Rajdhani', sans-serif; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: rgba(124,63,255,0.32); border-radius: 3px; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
+.section-padding { padding: 7rem 0; }
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+.section-tag::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(to right, var(--blue), var(--purple));
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--silver-dim);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--blue), var(--accent), var(--purple-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 28px rgba(79,124,255,0.28);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(79,124,255,0.45); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--silver);
+  padding: 0.9rem 2.2rem;
+  border: 1px solid var(--border-hover);
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--blue); color: var(--blue-light); background: rgba(79,124,255,0.07); }
+
+.section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
