@@ -14,7 +14,7 @@ export default function Hero() {
 
       {/* Right image */}
       <div className={styles.heroRight}>
-        <img src="/Corpo.png" alt="" className={styles.heroBg} />
+        <img src={`${import.meta.env.BASE_URL}Corpo.png`} alt="" className={styles.heroBg} />
         <div className={styles.heroRightOverlay}></div>
       </div>
 

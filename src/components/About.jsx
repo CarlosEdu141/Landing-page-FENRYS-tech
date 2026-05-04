@@ -43,7 +43,7 @@ export default function About() {
               <div className={`${styles.ring} ${styles.ring2}`}></div>
               <div className={styles.glow}></div>
               <img
-                src="/Fenrys_transparente.png"
+                src={`${import.meta.env.BASE_URL}Fenrys_transparente.png`}
                 alt="Fenrys Tech"
                 className={`${styles.logoImg} ${aboutRevealed ? styles.logoVisible : ''}`}
               />

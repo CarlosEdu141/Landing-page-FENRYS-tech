@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <img src="/FenrysIcon.png" alt="Fenrys Tech" className={styles.logo} />
+          <img src={`${import.meta.env.BASE_URL}FenrysIcon.png`} alt="Fenrys Tech" className={styles.logo} />
           <div className={styles.wordmark}>FENRYS TECH</div>
         </div>
         <div className={styles.copy}>© {new Date().getFullYear()} Fenrys Tech. Todos os direitos reservados.</div>

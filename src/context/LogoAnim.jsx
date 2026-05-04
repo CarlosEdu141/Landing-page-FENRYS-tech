@@ -37,7 +37,7 @@ export function LogoAnimProvider({ children }) {
 
     /* ── Cria elemento voador no DOM ── */
     const fly = document.createElement('img');
-    fly.src = '/FenrysIcon.png';
+    fly.src = `${import.meta.env.BASE_URL}FenrysIcon.png`;
     fly.alt = '';
     fly.setAttribute('aria-hidden', 'true');
     flyEl.current = fly;
