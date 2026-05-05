@@ -33,7 +33,7 @@ export const services = [
 
 export const projects = [
   {
-    emoji: '💰',
+    logo: 'HydraIcon.jpg',
     tag: 'Fintech',
     title: 'Hydra Investimentos',
     desc: 'Aplicação web de gestão financeira pessoal com controle de entradas/saídas, categorização de transações e dashboard de evolução financeira.',
@@ -41,7 +41,7 @@ export const projects = [
     gradient: 'linear-gradient(135deg, #0a1a40, #1a0a50)',
   },
   {
-    emoji: '🏋️',
+    logo: 'OlympusIcon.png',
     tag: 'Fitness & IA',
     title: 'Olympus',
     desc: 'Plataforma de gestão de treinos com IA integrada (Hércules), atendendo alunos e professores em perfis distintos.',
@@ -49,7 +49,7 @@ export const projects = [
     gradient: 'linear-gradient(135deg, #1a0a00, #3a1a00)',
   },
   {
-    emoji: '👗',
+    logo: 'V&LFashionLogo.jpg',
     tag: 'E-commerce',
     title: 'V&L Fashion',
     desc: 'E-commerce para loja de moda feminina com funcionalidades completas de vendas e gestão operacional.',
