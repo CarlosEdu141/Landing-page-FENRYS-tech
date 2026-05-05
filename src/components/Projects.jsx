@@ -64,7 +64,7 @@ function ProjectCard({ project, delay, visible }) {
     <div
       ref={cardRef}
       className={`${styles.card} ${visible ? styles.cardVisible : ''}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ '--accent': project.color, transitionDelay: `${delay}ms` }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
