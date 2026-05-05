@@ -38,7 +38,7 @@ export const projects = [
     title: 'Hydra Investimentos',
     desc: 'Aplicação web de gestão financeira pessoal com controle de entradas/saídas, categorização de transações e dashboard de evolução financeira.',
     techs: ['React', 'Node.js', 'PostgreSQL'],
-    gradient: 'linear-gradient(135deg, #0a1a40, #1a0a50)',
+    gradient: 'linear-gradient(135deg, #041a08, #082e12)',
   },
   {
     logo: 'OlympusIcon.png',
@@ -46,7 +46,7 @@ export const projects = [
     title: 'Olympus',
     desc: 'Plataforma de gestão de treinos com IA integrada (Hércules), atendendo alunos e professores em perfis distintos.',
     techs: ['React', 'Node.js', 'AI Agent', 'PostgreSQL'],
-    gradient: 'linear-gradient(135deg, #1a0a00, #3a1a00)',
+    gradient: 'linear-gradient(135deg, #f0f0f0, #e0e0e0)',
   },
   {
     logo: 'V&LFashionLogo.jpg',
@@ -54,7 +54,7 @@ export const projects = [
     title: 'V&L Fashion',
     desc: 'E-commerce para loja de moda feminina com funcionalidades completas de vendas e gestão operacional.',
     techs: ['React', 'Node.js', 'API REST', 'PostgreSQL'],
-    gradient: 'linear-gradient(135deg, #2a0a1a, #1a0a40)',
+    gradient: 'linear-gradient(135deg, #1e3a6a, #2b4a7a)',
   },
 ];
 
