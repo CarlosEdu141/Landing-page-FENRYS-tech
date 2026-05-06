@@ -8,8 +8,8 @@ const projectTypes = [
 ];
 
 const channels = [
-  { icon: '📧', label: 'E-mail', value: 'contato@fenrystech.com.br', href: 'mailto:contato@fenrystech.com.br' },
-  { icon: '💬', label: 'WhatsApp', value: '(62) 9 9999-9999', href: 'https://wa.me/5562999999999' },
+  { icon: '📧', label: 'E-mail', value: 'fenrystech@gmail.com', href: 'mailto:fenrystech@gmail.com' },
+  { icon: '📸', label: 'Instagram', value: '@fenrys_tech', href: 'https://www.instagram.com/fenrys_tech/' },
   { icon: '📍', label: 'Localização', value: 'Goiânia, GO — Brasil', href: '#' },
 ];
 
