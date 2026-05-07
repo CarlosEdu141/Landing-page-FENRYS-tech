@@ -83,9 +83,9 @@ export const testimonials = [
 ];
 
 export const stats = [
-  { num: '50+', label: 'Projetos Entregues' },
-  { num: '30+', label: 'Clientes Satisfeitos' },
-  { num: '3+', label: 'Anos de Mercado' },
+  { num: '3', label: 'Projetos Entregues' },
+  { num: '2', label: 'Em Desenvolvimento' },
+  { num: '2', label: 'Clientes Atendidos' },
   { num: '100%', label: 'Compromisso Total' },
 ];
 

@@ -1,5 +1,4 @@
 import { useInView } from '../hooks/useInView';
-import { testimonials } from '../data/siteData';
 import styles from './Testimonials.module.css';
 
 export default function Testimonials() {
@@ -11,28 +10,20 @@ export default function Testimonials() {
         <div className={`${styles.header} ${inView ? styles.visible : ''}`} ref={ref}>
           <div className="section-tag">Depoimentos</div>
           <h2 className="section-title">O que nossos clientes dizem</h2>
-          <p className="section-subtitle">Resultados reais de quem já confiou na Fenrys Tech para crescer.</p>
         </div>
 
-        <div className={styles.grid}>
-          {testimonials.map((t, i) => (
-            <div
-              key={t.name}
-              className={`${styles.card} ${inView ? styles.cardVisible : ''}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <div className={styles.quote}>"</div>
-              <div className={styles.stars}>★★★★★</div>
-              <p className={styles.text}>{t.text}</p>
-              <div className={styles.client}>
-                <div className={styles.avatar}>{t.initials}</div>
-                <div>
-                  <div className={styles.name}>{t.name}</div>
-                  <div className={styles.role}>{t.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className={`${styles.invite} ${inView ? styles.visible : ''}`} ref={ref}>
+          <div className={styles.inviteQuote}>"</div>
+          <p className={styles.inviteText}>
+            Seja você o autor da nossa história.
+          </p>
+          <p className={styles.inviteSubtext}>
+            Trabalhou com a Fenrys Tech? Adoraríamos ouvir sua experiência.
+            Entre em contato pelo nosso atendimento e compartilhe seu depoimento.
+          </p>
+          <a href="#contato" className="btn-primary" style={{ marginTop: '2rem', display: 'inline-block' }}>
+            Compartilhar Experiência →
+          </a>
         </div>
       </div>
     </section>
