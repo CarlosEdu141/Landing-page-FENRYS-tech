@@ -14,7 +14,7 @@ export default function Testimonials() {
 
         <div className={`${styles.invite} ${inView ? styles.visible : ''}`} ref={ref}>
           <img
-            src={`${import.meta.env.BASE_URL}Fenrys_transparente.png`}
+            src={`${import.meta.env.BASE_URL}FenrysIcon.png`}
             alt=""
             aria-hidden="true"
             className={styles.bgLogo}
