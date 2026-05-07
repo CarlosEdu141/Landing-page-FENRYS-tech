@@ -7,6 +7,14 @@ function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
+// Safari não promove automaticamente elementos com filter para GPU
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+// iOS Safari tem viewport offset dinâmico (barra de URL que aparece/desaparece)
+function getViewportOffsetTop() {
+  return window.visualViewport ? window.visualViewport.offsetTop : 0;
+}
+
 export function LogoAnimProvider({ children }) {
   const navIconEl   = useRef(null); // <img> da navbar
   const aboutLogoEl = useRef(null); // div .logoBg do About
@@ -42,10 +50,11 @@ export function LogoAnimProvider({ children }) {
     fly.setAttribute('aria-hidden', 'true');
     flyEl.current = fly;
 
+    const vpTop = getViewportOffsetTop();
     Object.assign(fly.style, {
       position:        'fixed',
       left:            `${startX}px`,
-      top:             `${startY}px`,
+      top:             `${startY - vpTop}px`,
       width:           `${startW}px`,
       height:          `${startH}px`,
       opacity:         '0',
@@ -55,6 +64,7 @@ export function LogoAnimProvider({ children }) {
       pointerEvents:   'none',
       filter:          'none',
       transition:      'none',
+      willChange:      'transform, filter, opacity',
     });
     document.body.appendChild(fly);
 
@@ -73,18 +83,21 @@ export function LogoAnimProvider({ children }) {
          então o voador acompanha o scroll em tempo real.
          ══════════════════════════════════════════════ */
       const travelStart = performance.now();
+      const vpTopStart  = getViewportOffsetTop();
 
       function travel(now) {
         if (phaseRef.current !== 'flying') return;
 
-        const p  = Math.min((now - travelStart) / TRAVEL_MS, 1);
-        const e  = easeInOutCubic(p);
-        const ar = about.getBoundingClientRect();
-        const cx = ar.left + ar.width  / 2;
-        const cy = ar.top  + ar.height / 2;
+        const p   = Math.min((now - travelStart) / TRAVEL_MS, 1);
+        const e   = easeInOutCubic(p);
+        const ar  = about.getBoundingClientRect();
+        const vp  = getViewportOffsetTop();
+        const cx  = ar.left + ar.width  / 2;
+        const cy  = ar.top  + ar.height / 2 - vp;
+        const sy  = startY - vpTopStart;
 
         fly.style.left   = `${startX + (cx - startX) * e}px`;
-        fly.style.top    = `${startY + (cy - startY) * e}px`;
+        fly.style.top    = `${sy + (cy - sy) * e}px`;
         fly.style.width  = `${startW + (endW - startW) * e}px`;
         fly.style.height = `${startH + (endH - startH) * e}px`;
 
@@ -109,24 +122,28 @@ export function LogoAnimProvider({ children }) {
           /* CSS transition APENAS em transform e filter */
           fly.style.transition = [
             'transform 0.85s cubic-bezier(0.34,1.56,0.64,1)',
-            'filter    0.65s ease',
+            `filter    ${isSafari ? '0.45s' : '0.65s'} ease`,
           ].join(', ');
           fly.style.transform = 'translate(-50%, -50%) rotate(360deg) scale(1.2)';
-          fly.style.filter    = [
-            'drop-shadow(0 0 24px rgba(124,63,255,1))',
-            'drop-shadow(0 0 52px rgba(79,124,255,0.85))',
-            'drop-shadow(0 0 100px rgba(124,63,255,0.5))',
-            'brightness(1.18)',
-          ].join(' ');
+          // Safari: filter simples para não sobrecarregar o GPU
+          fly.style.filter = isSafari
+            ? 'drop-shadow(0 0 32px rgba(124,63,255,0.9)) brightness(1.15)'
+            : [
+                'drop-shadow(0 0 24px rgba(124,63,255,1))',
+                'drop-shadow(0 0 52px rgba(79,124,255,0.85))',
+                'drop-shadow(0 0 100px rgba(124,63,255,0.5))',
+                'brightness(1.18)',
+              ].join(' ');
 
           /* rAF de tracking durante o giro (só left/top, sem transition neles) */
           const spinStart = performance.now();
 
           function trackSpin(now) {
             if (phaseRef.current !== 'flying') return;
-            const r = about.getBoundingClientRect();
+            const r  = about.getBoundingClientRect();
+            const vp = getViewportOffsetTop();
             fly.style.left = `${r.left + r.width  / 2}px`;
-            fly.style.top  = `${r.top  + r.height / 2}px`;
+            fly.style.top  = `${r.top  + r.height / 2 - vp}px`;
             if (now - spinStart < SPIN_MS) {
               rafId.current = requestAnimationFrame(trackSpin);
             }
