@@ -4,7 +4,16 @@
       "Bash(npm run *)",
       "Bash(mv \"C:/Users/carlo/Desktop/Atividades e Diversos/Aleatoriedades/FENRYS tech/src/components/testimonials.jsx\" \"C:/Users/carlo/Desktop/Atividades e Diversos/Aleatoriedades/FENRYS tech/src/components/testimonials_temp.jsx\")",
       "Bash(mv \"C:/Users/carlo/Desktop/Atividades e Diversos/Aleatoriedades/FENRYS tech/src/components/testimonials_temp.jsx\" \"C:/Users/carlo/Desktop/Atividades e Diversos/Aleatoriedades/FENRYS tech/src/components/Testimonials.jsx\")",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(gh api *)",
+      "PowerShell(git config *)",
+      "PowerShell($env:GITHUB_TOKEN; $env:GH_TOKEN)",
+      "WebFetch(domain:carlosedu141.github.io)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(dir -Recurse -Name *.tsx *.ts *.jsx *.js)"
     ]
   }
 }
