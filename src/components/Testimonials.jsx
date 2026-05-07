@@ -13,6 +13,12 @@ export default function Testimonials() {
         </div>
 
         <div className={`${styles.invite} ${inView ? styles.visible : ''}`} ref={ref}>
+          <img
+            src={`${import.meta.env.BASE_URL}Fenrys_transparente.png`}
+            alt=""
+            aria-hidden="true"
+            className={styles.bgLogo}
+          />
           <div className={styles.inviteQuote}>"</div>
           <p className={styles.inviteText}>
             Seja você o autor da nossa história.
