@@ -4,7 +4,10 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
-  useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
+  useEffect(() => {
+    const t = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section id="hero" className={styles.hero}>

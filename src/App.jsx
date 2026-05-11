@@ -1,4 +1,3 @@
-import './index.css';
 import { LogoAnimProvider } from './context/LogoAnim';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';

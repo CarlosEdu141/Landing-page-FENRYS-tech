@@ -154,8 +154,11 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 7rem 5% 4rem; }
+  .hero { padding: 7rem 0 4rem; }
   .heroRight { display: none; }
+  .badge { letter-spacing: 0.06em; font-size: 0.68rem; }
+  .h1 { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  .desc { font-size: 1rem; }
   .statsRow { gap: 1.8rem; }
   .statNum { font-size: 1.6rem; }
 }

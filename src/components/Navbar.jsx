@@ -68,7 +68,20 @@ export default function Navbar() {
         </div>
       </a>
 
+      {menuOpen && (
+        <div className={styles.overlay} onClick={() => setMenuOpen(false)} aria-hidden="true" />
+      )}
+
       <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
+        <li className={styles.menuHeader}>
+          <button
+            className={styles.closeBtn}
+            onClick={() => setMenuOpen(false)}
+            aria-label="Fechar menu"
+          >
+            ✕
+          </button>
+        </li>
         {links.map(l => (
           <li key={l.href}>
             <a
