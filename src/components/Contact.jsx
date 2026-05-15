@@ -7,6 +7,8 @@ const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
 const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
 const projectTypes = [
   'Sistema Web', 'App Mobile', 'E-commerce',
   'Integração / API', 'Inteligência Artificial', 'Automação', 'Outro',
@@ -24,8 +26,19 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+
+  const emailInvalid = emailTouched && form.email.trim() !== '' && !isValidEmail(form.email);
+
+  const canSubmit =
+    form.name.trim() &&
+    form.email.trim() &&
+    isValidEmail(form.email) &&
+    form.company.trim() &&
+    form.type &&
+    form.message.trim();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -97,29 +110,41 @@ export default function Contact() {
               <form onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label>Seu nome</label>
+                    <label>Seu nome *</label>
                     <input name="name" value={form.name} onChange={handleChange} placeholder="João Silva" required />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>E-mail</label>
-                    <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="joao@empresa.com" required />
+                    <label>E-mail *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      onBlur={() => setEmailTouched(true)}
+                      placeholder="joao@empresa.com"
+                      className={emailInvalid ? styles.inputError : ''}
+                      required
+                    />
+                    {emailInvalid && (
+                      <span className={styles.fieldError}>Digite um e-mail válido</span>
+                    )}
                   </div>
                 </div>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label>Empresa</label>
-                    <input name="company" value={form.company} onChange={handleChange} placeholder="Nome da empresa" />
+                    <label>Empresa *</label>
+                    <input name="company" value={form.company} onChange={handleChange} placeholder="Nome da empresa" required />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Tipo de projeto</label>
-                    <select name="type" value={form.type} onChange={handleChange}>
+                    <label>Tipo de projeto *</label>
+                    <select name="type" value={form.type} onChange={handleChange} required>
                       <option value="">Selecione...</option>
                       {projectTypes.map(t => <option key={t}>{t}</option>)}
                     </select>
                   </div>
                 </div>
                 <div className={styles.formGroup}>
-                  <label>Conte sobre seu projeto</label>
+                  <label>Conte sobre seu projeto *</label>
                   <textarea
                     name="message"
                     value={form.message}
@@ -133,7 +158,7 @@ export default function Contact() {
                     Erro ao enviar. Tente novamente ou fale diretamente pelo e-mail ou Instagram.
                   </p>
                 )}
-                <button type="submit" className={styles.submit} disabled={sending}>
+                <button type="submit" className={styles.submit} disabled={!canSubmit || sending}>
                   {sending ? 'Enviando...' : 'Enviar Mensagem →'}
                 </button>
               </form>

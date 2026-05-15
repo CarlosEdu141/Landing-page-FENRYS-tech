@@ -210,6 +210,14 @@
   font-weight: 700;
 }
 
+.ratingRequired {
+  font-size: 0.78rem;
+  color: var(--silver-dim);
+  margin-left: 0.7rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+
 .errorMsg {
   font-size: 0.85rem;
   color: #f87171;

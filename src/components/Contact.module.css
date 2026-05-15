@@ -105,6 +105,16 @@
 .formGroup input::placeholder,
 .formGroup textarea::placeholder { color: var(--silver-dim); opacity: 0.6; }
 
+.inputError { border-color: #f87171 !important; }
+.inputError:focus { border-color: #f87171 !important; box-shadow: 0 0 0 3px rgba(248,113,113,0.15) !important; }
+
+.fieldError {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: #f87171;
+}
+
 .submit {
   width: 100%;
   background: linear-gradient(135deg, var(--blue), var(--purple));

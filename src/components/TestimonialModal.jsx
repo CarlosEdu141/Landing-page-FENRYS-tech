@@ -155,7 +155,7 @@ export default function TestimonialModal({ onClose }) {
               </div>
 
               <div className={styles.field}>
-                <label className={styles.label}>Avaliação do serviço</label>
+                <label className={styles.label}>Avaliação do serviço <span aria-hidden="true">*</span></label>
                 <div className={styles.starsRow}>
                   {[1, 2, 3, 4, 5].map((star) => {
                     const active = displayRating >= star;
@@ -196,10 +196,12 @@ export default function TestimonialModal({ onClose }) {
                     );
                   })}
 
-                  {displayRating > 0 && (
+                  {displayRating > 0 ? (
                     <span className={`${styles.ratingLabel} ${displayRating === 5 ? styles.ratingLabelTop : ''}`}>
                       {RATING_LABELS[displayRating]}
                     </span>
+                  ) : (
+                    <span className={styles.ratingRequired}>Selecione uma nota</span>
                   )}
                 </div>
               </div>
@@ -230,7 +232,7 @@ export default function TestimonialModal({ onClose }) {
                 type="submit"
                 className="btn-primary"
                 style={{ width: '100%', justifyContent: 'center' }}
-                disabled={!form.name.trim() || !form.message.trim() || sending}
+                disabled={!form.name.trim() || !form.message.trim() || rating === 0 || sending}
               >
                 {sending ? 'Enviando...' : 'Enviar depoimento →'}
               </button>
