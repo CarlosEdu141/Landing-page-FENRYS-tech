@@ -13,7 +13,12 @@
       "WebFetch(domain:carlosedu141.github.io)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(dir -Recurse -Name *.tsx *.ts *.jsx *.js)"
+      "Bash(dir -Recurse -Name *.tsx *.ts *.jsx *.js)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\carlo\\\\Desktop\\\\Atividades e Diversos\\\\Aleatoriedades\\\\FENRYS tech\" -Recurse -Directory | Select-Object -First 30 | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\carlo\\\\Desktop\\\\Atividades e Diversos\\\\Aleatoriedades\\\\FENRYS tech\" -File | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\carlo\\\\Desktop\\\\Atividades e Diversos\\\\Aleatoriedades\\\\FENRYS tech\\\\src\\\\components\" | ForEach-Object { $_.Name })",
+      "Bash(npm install *)",
+      "Bash(Select-String \".env\")"
     ]
   }
 }

@@ -1,6 +1,11 @@
+import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import styles from './Contact.module.css';
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const projectTypes = [
   'Sistema Web', 'App Mobile', 'E-commerce',
@@ -17,12 +22,34 @@ export default function Contact() {
   const [ref, inView] = useInView();
   const [form, setForm] = useState({ name: '', email: '', company: '', type: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setSendError(false);
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          contact_name:    form.name,
+          contact_email:   form.email,
+          contact_company: form.company || 'Não informado',
+          contact_type:    form.type    || 'Não informado',
+          contact_message: form.message,
+        },
+        PUBLIC_KEY,
+      );
+      setSent(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -101,8 +128,13 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <button type="submit" className={styles.submit}>
-                  Enviar Mensagem →
+                {sendError && (
+                  <p className={styles.errorMsg}>
+                    Erro ao enviar. Tente novamente ou fale diretamente pelo e-mail ou Instagram.
+                  </p>
+                )}
+                <button type="submit" className={styles.submit} disabled={sending}>
+                  {sending ? 'Enviando...' : 'Enviar Mensagem →'}
                 </button>
               </form>
             )}

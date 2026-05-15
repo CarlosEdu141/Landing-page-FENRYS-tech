@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import styles from './Testimonials.module.css';
+import TestimonialModal from './TestimonialModal';
 
 export default function Testimonials() {
   const [ref, inView] = useInView();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section id="depoimentos" className={`section-padding ${styles.section}`}>
@@ -27,11 +30,17 @@ export default function Testimonials() {
             Trabalhou com a Fenrys Tech? Adoraríamos ouvir sua experiência.
             Entre em contato pelo nosso atendimento e compartilhe seu depoimento.
           </p>
-          <a href="#contato" className="btn-primary" style={{ marginTop: '2rem', display: 'inline-block' }}>
+          <button
+            className="btn-primary"
+            style={{ marginTop: '2rem' }}
+            onClick={() => setModalOpen(true)}
+          >
             Compartilhar Experiência →
-          </a>
+          </button>
         </div>
       </div>
+
+      {modalOpen && <TestimonialModal onClose={() => setModalOpen(false)} />}
     </section>
   );
 }

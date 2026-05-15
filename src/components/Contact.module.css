@@ -121,7 +121,18 @@
   transition: all 0.2s;
   box-shadow: 0 4px 24px rgba(79,124,255,0.22);
 }
-.submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,124,255,0.4); }
+.submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(79,124,255,0.4); }
+.submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.errorMsg {
+  font-size: 0.88rem;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.5rem;
+}
 
 /* SUCCESS */
 .success {
