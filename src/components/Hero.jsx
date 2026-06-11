@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { stats } from '../data/siteData';
-import HeroCanvas from './HeroCanvas';
 import styles from './Hero.module.css';
 
 function StatCounter({ num, active }) {
@@ -38,8 +37,6 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      <HeroCanvas />
-
       <div className={styles.orb1}></div>
       <div className={styles.orb2}></div>
 
