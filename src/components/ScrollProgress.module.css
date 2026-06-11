@@ -1,0 +1,11 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--blue), var(--accent), var(--purple));
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--purple);
+  pointer-events: none;
+  transition: width 0.08s linear;
+}

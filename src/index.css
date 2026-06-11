@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
+@property --serviceAngle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -53,6 +59,14 @@ body {
   font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+html { cursor: none; }
+*, *::before, *::after { cursor: none !important; }
+
+@media (hover: none) {
+  html { cursor: auto; }
+  *, *::before, *::after { cursor: auto !important; }
 }
 
 body::before {
@@ -118,10 +132,16 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Rajdhani', 
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--blue), var(--accent), var(--purple-light));
+  background: linear-gradient(90deg, var(--blue) 0%, var(--accent) 40%, var(--purple-light) 70%, var(--blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% auto;
+  animation: gradShine 3s linear infinite;
+}
+
+@keyframes gradShine {
+  to { background-position: 200% center; }
 }
 
 .btn-primary {

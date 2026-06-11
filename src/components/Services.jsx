@@ -32,10 +32,12 @@ function ServiceCard({ service, delay, visible }) {
       className={`${styles.card} ${visible ? styles.cardVisible : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className={styles.icon}>{service.icon}</div>
-      <h3>{service.title}</h3>
-      <p>{service.desc}</p>
-      <div className={styles.corner}></div>
+      <div className={styles.cardInner}>
+        <div className={styles.icon}>{service.icon}</div>
+        <h3>{service.title}</h3>
+        <p>{service.desc}</p>
+        <div className={styles.corner}></div>
+      </div>
     </div>
   );
 }

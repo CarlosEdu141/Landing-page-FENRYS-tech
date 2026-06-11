@@ -1,4 +1,6 @@
 import { LogoAnimProvider } from './context/LogoAnim';
+import ScrollProgress from './components/ScrollProgress';
+import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Ticker from './components/Ticker';
@@ -13,6 +15,8 @@ import Footer from './components/Footer';
 function App() {
   return (
     <LogoAnimProvider>
+      <ScrollProgress />
+      <CustomCursor />
       <Navbar />
       <Hero />
       <Ticker />
