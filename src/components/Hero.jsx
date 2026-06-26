@@ -41,7 +41,7 @@ export default function Hero() {
       <div className={styles.orb2}></div>
 
       <div className={styles.heroRight}>
-        <img src={`${import.meta.env.BASE_URL}Corpo.png`} alt="" className={styles.heroBg} />
+        <img src={`${import.meta.env.BASE_URL}Corpo.webp`} alt="" className={styles.heroBg} fetchPriority="high" />
         <div className={styles.heroRightOverlay}></div>
       </div>
 

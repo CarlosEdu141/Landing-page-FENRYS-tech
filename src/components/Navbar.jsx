@@ -58,7 +58,7 @@ export default function Navbar() {
       <a href="#" className={styles.logo}>
         <img
           ref={navIconEl}
-          src={`${import.meta.env.BASE_URL}FenrysIcon.png`}
+          src={`${import.meta.env.BASE_URL}FenrysIcon.webp`}
           alt="Fenrys Tech"
           className={styles.logoImg}
         />

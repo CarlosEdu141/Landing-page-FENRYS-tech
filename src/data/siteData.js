@@ -33,7 +33,7 @@ export const services = [
 
 export const projects = [
   {
-    logo: 'HydraIcon.jpg',
+    logo: 'HydraIcon.webp',
     color: '#00e676',
     tag: 'Fintech',
     title: 'Hydra Investimentos',
@@ -42,7 +42,7 @@ export const projects = [
     gradient: 'linear-gradient(135deg, #041a08, #082e12)',
   },
   {
-    logo: 'OlympusIcon.png',
+    logo: 'OlympusIcon.webp',
     color: '#d4a017',
     tag: 'Fitness & IA',
     title: 'Olympus',
@@ -51,7 +51,7 @@ export const projects = [
     gradient: 'linear-gradient(135deg, #f0f0f0, #e0e0e0)',
   },
   {
-    logo: 'V&LFashionLogo.jpg',
+    logo: 'V&LFashionLogo.webp',
     color: '#4a7ab5',
     tag: 'E-commerce',
     title: 'V&L Fashion',

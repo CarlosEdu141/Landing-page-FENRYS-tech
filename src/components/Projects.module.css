@@ -139,3 +139,10 @@
 
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } }
+
+:global([data-theme="light"]) .card {
+  box-shadow: 0 2px 16px rgba(61,110,232,0.08);
+}
+:global([data-theme="light"]) .card:hover {
+  box-shadow: 0 14px 44px color-mix(in srgb, var(--accent) 22%, transparent), 0 2px 16px rgba(61,110,232,0.1);
+}

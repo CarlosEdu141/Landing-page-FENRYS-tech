@@ -69,7 +69,7 @@ function ProjectCard({ project, delay, visible }) {
       onMouseLeave={handleMouseLeave}
     >
       <div className={styles.thumb} style={{ background: project.gradient }}>
-        <img src={`${import.meta.env.BASE_URL}${project.logo}`} alt={project.title} className={styles.logo} />
+        <img src={`${import.meta.env.BASE_URL}${project.logo}`} alt={project.title} className={styles.logo} loading="lazy" />
         <span className={styles.tagTop}>{project.tag}</span>
       </div>
       <div className={styles.body}>

@@ -31,6 +31,11 @@
   mix-blend-mode: multiply;
 }
 
+:global([data-theme="light"]) .logoImg {
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 0 10px rgba(61,110,232,0.3));
+}
+
 .wordmark {
   font-family: 'Orbitron', monospace;
   font-size: 1.05rem;

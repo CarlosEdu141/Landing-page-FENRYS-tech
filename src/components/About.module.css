@@ -132,3 +132,16 @@
   .ring1 { width: 220px; height: 220px; }
   .ring2 { width: 160px; height: 160px; }
 }
+
+:global([data-theme="light"]) .logoImg {
+  filter: drop-shadow(0 0 18px rgba(61,110,232,0.3));
+}
+:global([data-theme="light"]) .ring1 {
+  border-color: rgba(61,110,232,0.28);
+}
+:global([data-theme="light"]) .ring2 {
+  border-color: rgba(106,46,232,0.22);
+}
+:global([data-theme="light"]) .glow {
+  background: radial-gradient(circle, rgba(106,46,232,0.1) 0%, rgba(61,110,232,0.05) 45%, transparent 70%);
+}
