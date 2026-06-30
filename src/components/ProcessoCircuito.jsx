@@ -244,8 +244,8 @@ export default function ProcessoCircuito() {
       pin: true,
       pinSpacing: true,
       start: 'top top',
-      end: '+=440vh',
-      scrub: 1.2,
+      end: '+=620vh',
+      scrub: 1.8,
       onUpdate: (self) => applyProgress(self.progress),
     });
 
