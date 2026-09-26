@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Navbar.module.css';
 import { useLogoAnim } from '../context/LogoAnim';
 import { useTheme } from '../hooks/useTheme';
@@ -42,15 +43,37 @@ export default function Navbar() {
   const { theme, toggle } = useTheme();
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 220) setActive(s.id);
-      });
+    // Posições das seções em cache: ler offsetTop a cada scroll forçava
+    // recálculo de layout enquanto o GSAP anima (travadas no scroll).
+    let offsets = [];
+    const measure = () => {
+      offsets = [...document.querySelectorAll('section[id]')]
+        .map(s => ({ id: s.id, top: s.getBoundingClientRect().top + window.scrollY }));
     };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      setScrolled(y > 40);
+      let current = '';
+      for (const o of offsets) if (y >= o.top - 220) current = o.id;
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+
+    measure();
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', measure);
+    ScrollTrigger.addEventListener('refresh', measure); // pins mudam as posições
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', measure);
+      ScrollTrigger.removeEventListener('refresh', measure);
+    };
   }, []);
 
   return (

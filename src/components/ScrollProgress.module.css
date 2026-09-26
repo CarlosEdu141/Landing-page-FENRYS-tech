@@ -2,10 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 3px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
   background: linear-gradient(to right, var(--blue), var(--accent), var(--purple));
   z-index: 9999;
   box-shadow: 0 0 10px var(--purple);
   pointer-events: none;
-  transition: width 0.08s linear;
 }

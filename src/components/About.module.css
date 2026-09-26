@@ -125,12 +125,84 @@
   box-shadow: 0 0 7px var(--purple);
 }
 
+.logoBg { cursor: pointer; }
+.logoBg:hover .logoImg.logoVisible { filter: drop-shadow(0 0 44px rgba(124,63,255,0.7)); }
+
+/* ── Indicação de interatividade da logo ── */
+.visual { text-align: center; }
+
+.ping {
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124,63,255,0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+.pingOn { animation: ping 2.8s cubic-bezier(0.2, 0.6, 0.35, 1) infinite 0.6s; }
+.ping2.pingOn { animation-delay: 2s; border-color: rgba(79,124,255,0.5); }
+
+@keyframes ping {
+  0%   { scale: 0.85; opacity: 0; }
+  15%  { opacity: 0.9; }
+  100% { scale: 1.7; opacity: 0; }
+}
+
+.logoBg:hover .ping { animation-duration: 1.4s; }
+
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -1.5rem;
+  padding: 0.5rem 1.1rem;
+  background: rgba(124,63,255,0.08);
+  border: 1px solid rgba(124,63,255,0.28);
+  border-radius: 999px;
+  color: var(--silver);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  translate: 0 10px;
+  transition: opacity 0.6s ease 0.3s, translate 0.6s ease 0.3s, border-color 0.2s, color 0.2s;
+}
+.hintOn { opacity: 1; translate: 0 0; }
+.hint:hover,
+.visual:has(.logoBg:hover) .hint { border-color: var(--purple-light); color: var(--purple-light); }
+
+.hintDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--purple-light);
+  box-shadow: 0 0 8px var(--purple);
+  animation: blink 1.6s ease-in-out infinite;
+}
+@keyframes blink { 50% { opacity: 0.25; } }
+
+.hintTouch { display: none; }
+@media (hover: none) {
+  .hintMouse { display: none; }
+  .hintTouch { display: inline; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pingOn, .hintDot { animation: none; }
+}
+
+.storyBtn { margin-top: 2.2rem; }
+.storyArrow { display: inline-block; transition: transform 0.25s; }
+.storyBtn:hover .storyArrow { transform: translateX(5px); }
+
 @media (max-width: 768px) {
   .grid { grid-template-columns: 1fr; gap: 3rem; }
   .logoBg { max-width: 260px; }
   .logoImg { width: 130px; }
   .ring1 { width: 220px; height: 220px; }
   .ring2 { width: 160px; height: 160px; }
+  .ping { width: 140px; height: 140px; }
+  .hint { margin-top: -0.5rem; font-size: 0.72rem; letter-spacing: 0.08em; }
 }
 
 :global([data-theme="light"]) .logoImg {
@@ -144,4 +216,8 @@
 }
 :global([data-theme="light"]) .glow {
   background: radial-gradient(circle, rgba(106,46,232,0.1) 0%, rgba(61,110,232,0.05) 45%, transparent 70%);
+}
+:global([data-theme="light"]) .hint {
+  background: rgba(106,46,232,0.06);
+  border-color: rgba(106,46,232,0.25);
 }

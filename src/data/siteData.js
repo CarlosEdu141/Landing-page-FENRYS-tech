@@ -101,3 +101,49 @@ export const techs = [
   'Mobile Apps', 'Cloud & DevOps', 'API & Integrações', 'E-commerce',
   'Automação', 'UX Design', 'TypeScript', 'Banco de Dados',
 ];
+/* ══════════════════════════════════════════════
+   PÁGINA "NOSSA HISTÓRIA" — /historia
+   ══════════════════════════════════════════════ */
+export const historia = {
+  origem: {
+    titulo: 'Como tudo começou',
+    blocos: [
+      {
+        titulo: 'Como a Fenrys nasceu',
+        texto: 'A Fenrys nasceu da parceria entre Carlos Eduardo Tiago e Rafael Caldas. Os dois já desenvolviam projetos como freelancers e queriam dar a esse trabalho a estrutura e a seriedade de uma empresa de verdade. A confiança de que isso era possível veio antes mesmo da fundação, de um projeto que começou na faculdade e acabou mostrando do que a dupla era capaz.',
+      },
+      {
+        titulo: 'Primeiros passos',
+        texto: 'Nosso primeiro projeto foi o Olympus, hoje chamado Atlanteon. Ele surgiu no ambiente acadêmico como uma plataforma para acompanhar treinos e organizar a rotina de quem frequenta academias. Fomos muito além do que um trabalho de faculdade exigia: criamos funcionalidades, testamos ideias, enfrentamos problemas técnicos e aprendemos a transformar uma necessidade real em produto. Foi ali que enxergamos o potencial de construir algo nosso. Pouco depois, com a empresa oficializada, veio o primeiro cliente, uma indicação de um conhecido que se tornou a primeira demanda oficial da Fenrys.',
+      },
+    ],
+    citacao: 'Quem não arrisca nunca sonha alto o bastante para conquistar.',
+    autor: 'Carlos Eduardo e Rafael Caldas, Fundadores',
+  },
+
+  marcos: [
+    { ano: '2024',  titulo: 'Primeiro projeto',   desc: 'Nasce o Olympus (hoje Atlanteon), um projeto acadêmico que virou nosso primeiro produto de verdade.' },
+    { ano: '2025',  titulo: 'A ideia',            desc: 'Depois do Olympus, a dupla de freelancers decide transformar a parceria em algo maior.' },
+    { ano: '22 de maio de 2026', titulo: 'Fundação', desc: 'A Fenrys se torna oficialmente uma empresa, já com o primeiro cliente fechado e dois projetos em desenvolvimento.' },
+    { ano: '2026',  titulo: 'IA no DNA',          desc: 'A inteligência artificial chegou para transformar todas as áreas. Estamos nos aperfeiçoando para usá-la como mais uma ferramenta a favor dos nossos clientes.' },
+    { ano: 'Hoje',  titulo: 'O próximo capítulo', desc: 'A Fenrys ainda é uma empresa recém-nascida, mas com espaço para crescer no mercado de tecnologia. Seguimos aprimorando nosso trabalho e nosso conhecimento para mostrar que esta alcateia tem força para ir longe.' },
+  ],
+
+  pilares: [
+    {
+      icone: '🎯',
+      titulo: 'Missão',
+      desc: 'Criar soluções digitais que realmente funcionam e geram resultado para quem confia na gente.',
+    },
+    {
+      icone: '🔭',
+      titulo: 'Visão',
+      desc: 'Ser uma empresa reconhecida no mercado de tecnologia, primeiro na nossa região, depois no Brasil e no mundo.',
+    },
+    {
+      icone: '🐺',
+      titulo: 'Valores',
+      desc: 'Qualidade no código, transparência com o cliente e obsessão por resolver problemas da forma mais eficaz e eficiente.',
+    },
+  ],
+};

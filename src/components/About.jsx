@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { useLogoAnim } from '../context/LogoAnim';
+import { usePageTransition } from '../context/PageTransition';
 import styles from './About.module.css';
 
 const features = [
@@ -14,6 +15,11 @@ export default function About() {
 
   // contexto da animação voadora
   const { aboutLogoEl, aboutRevealed, triggerFly, triggerReturn } = useLogoAnim();
+
+  // clique na logo ou no botão → mergulho animado para /historia
+  const { goToHistory } = usePageTransition();
+  const logoImgRef = useRef(null);
+  const openHistory = () => goToHistory(logoImgRef.current);
 
   // observer SEPARADO no logoBg — só dispara quando a logo está centrada na tela
   useEffect(() => {
@@ -38,16 +44,37 @@ export default function About() {
         <div className={styles.grid} ref={gridRef}>
 
           <div className={`${styles.visual} ${inView ? styles.visible : ''}`}>
-            <div className={styles.logoBg} ref={aboutLogoEl}>
+            <div
+              className={styles.logoBg}
+              ref={aboutLogoEl}
+              onClick={openHistory}
+              data-hover
+              role="link"
+              aria-label="Conheça a história da Fenrys"
+            >
               <div className={`${styles.ring} ${styles.ring1}`}></div>
               <div className={`${styles.ring} ${styles.ring2}`}></div>
               <div className={styles.glow}></div>
+              {/* pulso que indica que a logo é clicável */}
+              <div className={`${styles.ping} ${aboutRevealed ? styles.pingOn : ''}`}></div>
+              <div className={`${styles.ping} ${styles.ping2} ${aboutRevealed ? styles.pingOn : ''}`}></div>
               <img
+                ref={logoImgRef}
                 src={`${import.meta.env.BASE_URL}Fenrys_transparente.png`}
                 alt="Fenrys Tech"
                 className={`${styles.logoImg} ${aboutRevealed ? styles.logoVisible : ''}`}
               />
             </div>
+            <button
+              className={`${styles.hint} ${aboutRevealed ? styles.hintOn : ''}`}
+              onClick={openHistory}
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              <span className={styles.hintDot}></span>
+              <span className={styles.hintMouse}>Clique na logo e conheça nossa história</span>
+              <span className={styles.hintTouch}>Toque na logo e conheça nossa história</span>
+            </button>
           </div>
 
           <div className={`${styles.text} ${inView ? styles.visible : ''}`}>
@@ -72,6 +99,9 @@ export default function About() {
                 </div>
               ))}
             </div>
+            <button className={`btn-primary ${styles.storyBtn}`} onClick={openHistory}>
+              Conheça nossa história <span className={styles.storyArrow}>→</span>
+            </button>
           </div>
 
         </div>
