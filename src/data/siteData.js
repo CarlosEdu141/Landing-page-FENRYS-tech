@@ -1,31 +1,31 @@
 export const services = [
   {
-    icon: '🖥️',
+    icon: 'web',
     title: 'Sistemas Web',
     desc: 'Plataformas web completas, painéis administrativos, ERPs e CRMs sob medida para o seu negócio crescer.',
   },
   {
-    icon: '📱',
+    icon: 'mobile',
     title: 'Apps Mobile',
     desc: 'Aplicativos nativos e híbridos para iOS e Android com experiências fluídas e design moderno.',
   },
   {
-    icon: '🤖',
+    icon: 'ai',
     title: 'Inteligência Artificial',
     desc: 'Integração de IA generativa, chatbots inteligentes, automação com LLMs e análise preditiva de dados.',
   },
   {
-    icon: '🛒',
+    icon: 'shop',
     title: 'E-commerce',
     desc: 'Lojas virtuais de alta performance com integrações de pagamento, logística e gestão de estoque.',
   },
   {
-    icon: '⚡',
+    icon: 'api',
     title: 'APIs & Integrações',
     desc: 'Conectamos sistemas, automatizamos fluxos de trabalho e integramos ferramentas do seu negócio.',
   },
   {
-    icon: '☁️',
+    icon: 'cloud',
     title: 'Cloud & DevOps',
     desc: 'Infraestrutura escalável na nuvem, CI/CD, monitoramento e deploys automatizados com zero downtime.',
   },
@@ -42,13 +42,13 @@ export const projects = [
     gradient: 'linear-gradient(135deg, #041a08, #082e12)',
   },
   {
-    logo: 'OlympusIcon.webp',
-    color: '#d4a017',
+    logo: 'AtlanteonIcon.webp',
+    color: '#3a8ee6',
     tag: 'Fitness & IA',
-    title: 'Olympus',
+    title: 'Atlanteon',
     desc: 'Plataforma de gestão de treinos com IA integrada (Hércules), atendendo alunos e professores em perfis distintos.',
     techs: ['React', 'Node.js', 'AI Agent', 'PostgreSQL'],
-    gradient: 'linear-gradient(135deg, #f0f0f0, #e0e0e0)',
+    gradient: 'linear-gradient(135deg, #0a1f44, #14427f)',
   },
   {
     logo: 'V&LFashionLogo.webp',
@@ -58,6 +58,15 @@ export const projects = [
     desc: 'E-commerce para loja de moda feminina com funcionalidades completas de vendas e gestão operacional.',
     techs: ['React', 'Node.js', 'API REST', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #1e3a6a, #2b4a7a)',
+  },
+  {
+    logo: 'UseAlpsLogo.webp',
+    color: '#b8475a',
+    tag: 'E-commerce',
+    title: 'use Alps',
+    desc: 'E-commerce de moda feminina de luxo, com vitrine sofisticada que traduz a identidade da marca e gestão completa de vendas.',
+    techs: ['React', 'Node.js', 'API REST', 'PostgreSQL'],
+    gradient: 'linear-gradient(135deg, #2a080d, #4e121c)',
   },
 ];
 
@@ -114,7 +123,7 @@ export const historia = {
       },
       {
         titulo: 'Primeiros passos',
-        texto: 'Nosso primeiro projeto foi o Olympus, hoje chamado Atlanteon. Ele surgiu no ambiente acadêmico como uma plataforma para acompanhar treinos e organizar a rotina de quem frequenta academias. Fomos muito além do que um trabalho de faculdade exigia: criamos funcionalidades, testamos ideias, enfrentamos problemas técnicos e aprendemos a transformar uma necessidade real em produto. Foi ali que enxergamos o potencial de construir algo nosso. Pouco depois, com a empresa oficializada, veio o primeiro cliente, uma indicação de um conhecido que se tornou a primeira demanda oficial da Fenrys.',
+        texto: 'Nosso primeiro projeto foi o Atlanteon. Ele surgiu no ambiente acadêmico como uma plataforma para acompanhar treinos e organizar a rotina de quem frequenta academias. Fomos muito além do que um trabalho de faculdade exigia: criamos funcionalidades, testamos ideias, enfrentamos problemas técnicos e aprendemos a transformar uma necessidade real em produto. Foi ali que enxergamos o potencial de construir algo nosso. Pouco depois, com a empresa oficializada, veio o primeiro cliente, uma indicação de um conhecido que se tornou a primeira demanda oficial da Fenrys.',
       },
     ],
     citacao: 'Quem não arrisca nunca sonha alto o bastante para conquistar.',
@@ -122,8 +131,8 @@ export const historia = {
   },
 
   marcos: [
-    { ano: '2024',  titulo: 'Primeiro projeto',   desc: 'Nasce o Olympus (hoje Atlanteon), um projeto acadêmico que virou nosso primeiro produto de verdade.' },
-    { ano: '2025',  titulo: 'A ideia',            desc: 'Depois do Olympus, a dupla de freelancers decide transformar a parceria em algo maior.' },
+    { ano: '2024',  titulo: 'Primeiro projeto',   desc: 'Nasce o Atlanteon, um projeto acadêmico que virou nosso primeiro produto de verdade.' },
+    { ano: '2025',  titulo: 'A ideia',            desc: 'Depois do Atlanteon, a dupla de freelancers decide transformar a parceria em algo maior.' },
     { ano: '22 de maio de 2026', titulo: 'Fundação', desc: 'A Fenrys se torna oficialmente uma empresa, já com o primeiro cliente fechado e dois projetos em desenvolvimento.' },
     { ano: '2026',  titulo: 'IA no DNA',          desc: 'A inteligência artificial chegou para transformar todas as áreas. Estamos nos aperfeiçoando para usá-la como mais uma ferramenta a favor dos nossos clientes.' },
     { ano: 'Hoje',  titulo: 'O próximo capítulo', desc: 'A Fenrys ainda é uma empresa recém-nascida, mas com espaço para crescer no mercado de tecnologia. Seguimos aprimorando nosso trabalho e nosso conhecimento para mostrar que esta alcateia tem força para ir longe.' },
@@ -131,17 +140,17 @@ export const historia = {
 
   pilares: [
     {
-      icone: '🎯',
+      icone: 'target',
       titulo: 'Missão',
       desc: 'Criar soluções digitais que realmente funcionam e geram resultado para quem confia na gente.',
     },
     {
-      icone: '🔭',
+      icone: 'vision',
       titulo: 'Visão',
       desc: 'Ser uma empresa reconhecida no mercado de tecnologia, primeiro na nossa região, depois no Brasil e no mundo.',
     },
     {
-      icone: '🐺',
+      icone: 'wolf',
       titulo: 'Valores',
       desc: 'Qualidade no código, transparência com o cliente e obsessão por resolver problemas da forma mais eficaz e eficiente.',
     },

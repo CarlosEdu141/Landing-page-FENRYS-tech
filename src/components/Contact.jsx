@@ -1,6 +1,7 @@
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
+import Icon from './Icon';
 import styles from './Contact.module.css';
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -15,9 +16,9 @@ const projectTypes = [
 ];
 
 const channels = [
-  { icon: '📧', label: 'E-mail', value: 'fenrystech@gmail.com', href: 'mailto:fenrystech@gmail.com' },
-  { icon: '📸', label: 'Instagram', value: '@fenrys_tech', href: 'https://www.instagram.com/fenrys_tech/' },
-  { icon: '📍', label: 'Localização', value: 'Goiânia, GO — Brasil', href: '#' },
+  { icon: 'mail', label: 'E-mail', value: 'fenrystech@gmail.com', href: 'mailto:fenrystech@gmail.com' },
+  { icon: 'instagram', label: 'Instagram', value: '@fenrys_tech', href: 'https://www.instagram.com/fenrys_tech/' },
+  { icon: 'pin', label: 'Localização', value: 'Goiânia, GO — Brasil', href: '#' },
 ];
 
 export default function Contact() {
@@ -83,8 +84,8 @@ export default function Contact() {
 
             <div className={styles.channels}>
               {channels.map(c => (
-                <a key={c.label} href={c.href} className={styles.channel}>
-                  <div className={styles.channelIcon}>{c.icon}</div>
+                <a key={c.label} href={c.href} className={styles.channel} data-icon-hover>
+                  <div className={styles.channelIcon}><Icon name={c.icon} size={21} /></div>
                   <div>
                     <div className={styles.channelLabel}>{c.label}</div>
                     <div className={styles.channelValue}>{c.value}</div>

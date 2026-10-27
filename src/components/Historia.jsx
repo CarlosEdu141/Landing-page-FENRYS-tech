@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePageTransition } from '../context/PageTransition';
 import { historia } from '../data/siteData';
+import Icon from './Icon';
 import styles from './Historia.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -205,8 +206,8 @@ export default function Historia() {
           </h2>
           <div className={styles.pillars}>
             {pilares.map((p) => (
-              <div key={p.titulo} className={styles.pillar}>
-                <div className={styles.pillarIcon}>{p.icone}</div>
+              <div key={p.titulo} className={styles.pillar} data-icon-hover>
+                <div className={styles.pillarIcon}><Icon name={p.icone} size={30} /></div>
                 <h3>{p.titulo}</h3>
                 <p>{p.desc}</p>
               </div>

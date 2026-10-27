@@ -1,5 +1,6 @@
 import { useInView } from '../hooks/useInView';
 import { services } from '../data/siteData';
+import Icon from './Icon';
 import styles from './Services.module.css';
 
 export default function Services() {
@@ -31,9 +32,10 @@ function ServiceCard({ service, delay, visible }) {
     <div
       className={`${styles.card} ${visible ? styles.cardVisible : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
+      data-icon-hover
     >
       <div className={styles.cardInner}>
-        <div className={styles.icon}>{service.icon}</div>
+        <div className={styles.icon}><Icon name={service.icon} size={28} /></div>
         <h3>{service.title}</h3>
         <p>{service.desc}</p>
         <div className={styles.corner}></div>

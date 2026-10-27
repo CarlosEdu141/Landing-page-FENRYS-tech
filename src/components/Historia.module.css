@@ -313,7 +313,15 @@
   translate: 0 -6px;
   box-shadow: 0 16px 40px rgba(124,63,255,0.15);
 }
-.pillarIcon { font-size: 2rem; margin-bottom: 1rem; }
+.pillarIcon {
+  width: 56px; height: 56px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-hover);
+  background: linear-gradient(135deg, rgba(79,124,255,0.14), rgba(124,63,255,0.14));
+}
 .pillar h3 { font-size: 1.1rem; color: var(--white); margin-bottom: 0.8rem; }
 .pillar p  { color: var(--silver-dim); line-height: 1.75; font-weight: 300; }
 

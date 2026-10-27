@@ -184,3 +184,20 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Rajdhani', 
 .btn-secondary:hover { border-color: var(--blue); color: var(--blue-light); background: rgba(79,124,255,0.07); }
 
 .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+/* ── Ícones Fenrys (src/components/Icon.jsx) ── */
+.ficon {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 6px rgba(79,124,255,0.35));
+}
+.ficon path { stroke-dasharray: var(--len, 0); }
+/* passa o mouse no card/link que tem data-icon-hover → o traço se redesenha */
+[data-icon-hover]:hover .ficon path { animation: ficonDraw 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
+@keyframes ficonDraw {
+  from { stroke-dashoffset: var(--len, 0); }
+  to   { stroke-dashoffset: 0; }
+}
+[data-theme="light"] .ficon { filter: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-icon-hover]:hover .ficon path { animation: none; }
+}

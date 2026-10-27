@@ -239,13 +239,18 @@ export default function ProcessoBuild() {
       ScrollTrigger.create({
         trigger: stage,
         start: 'top top',
-        end: () => `+=${window.innerHeight * 5.5}`,
+        end: () => `+=${window.innerHeight * 3}`,
         pin: true,
-        scrub: 1,
+        scrub: 0.6,
         anticipatePin: 1,
         animation: tl,
         invalidateOnRefresh: true,
-        onUpdate: syncNodes,
+        // botão "pular" só aparece com o palco fixo, apontando para onde o usuário está indo
+        onToggle: (self) => stage.classList.toggle(styles.pinned, self.isActive),
+        onUpdate: (self) => {
+          syncNodes();
+          stage.classList.toggle(styles.goingUp, self.direction < 0);
+        },
       });
 
       syncNodes();
@@ -265,6 +270,18 @@ export default function ProcessoBuild() {
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
+  /* pular a animação → vai para a seção de baixo (ou de cima, se estiver subindo) */
+  const skip = () => {
+    const st = tlRef.current?.scrollTrigger;
+    if (!st) return;
+    const up     = stageRef.current.classList.contains(styles.goingUp);
+    const target = document.getElementById(up ? 'servicos' : 'projetos');
+    const top    = target
+      ? target.getBoundingClientRect().top + window.scrollY
+      : (up ? st.start - window.innerHeight : st.end + window.innerHeight);
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
+
   return (
     <section id="processo" className={styles.section}>
       <div className={`container ${styles.head}`}>
@@ -280,6 +297,13 @@ export default function ProcessoBuild() {
           <div className={styles.glowA} />
           <div className={styles.glowB} />
         </div>
+
+        <button className={styles.skip} onClick={skip}>
+          Pular animação
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4">
+            <path d="M12 5v14M6 13l6 6 6-6" />
+          </svg>
+        </button>
 
         <div className={`container ${styles.layout}`}>
           {/* ── Coluna de texto ── */}
