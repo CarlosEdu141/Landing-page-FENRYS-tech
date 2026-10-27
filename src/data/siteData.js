@@ -92,8 +92,8 @@ export const testimonials = [
 ];
 
 export const stats = [
-  { num: '3+', label: 'Projetos Executados' },
-  { num: '2+', label: 'Clientes Atendidos' },
+  { num: '4+', label: 'Projetos Executados' },
+  { num: '3+', label: 'Clientes Atendidos' },
   { num: '100%', label: 'Compromisso Total' },
   { num: '✦', label: 'Novos no Mercado' },
 ];
