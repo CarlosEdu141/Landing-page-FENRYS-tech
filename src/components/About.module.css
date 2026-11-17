@@ -1,4 +1,4 @@
-.about { background: linear-gradient(180deg, transparent, var(--section-overlay), transparent); }
+.about { position: relative; }
 
 .grid {
   display: grid;
@@ -34,7 +34,7 @@
 
 .ring1 {
   width: 320px; height: 320px;
-  border-color: rgba(79,124,255,0.18);
+  border-color: color-mix(in srgb, var(--blue) 22%, transparent);
   animation: spin 22s linear infinite;
 }
 
@@ -82,7 +82,13 @@
   font-weight: 300;
 }
 
-.p1 { margin-bottom: 1rem; }
+.p1 {
+  margin-bottom: 1.2rem;
+  color: var(--white);
+  font-size: 1.22rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
 .p2 { margin-bottom: 2.5rem; }
 
 .chips {

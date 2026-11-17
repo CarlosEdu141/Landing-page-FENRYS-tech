@@ -15,7 +15,7 @@ export default function Projects() {
     <section id="projetos" className={`section-padding ${styles.section}`}>
       <div className="container">
         <div className={`${styles.header} ${inView ? styles.visible : ''}`} ref={ref}>
-          <div className="section-tag">Portfólio</div>
+          <div className="section-tag" data-n="04">Portfólio</div>
           <h2 className="section-title">Projetos que já entregamos</h2>
           <p className="section-subtitle">Soluções reais, para problemas reais — de vários segmentos.</p>
         </div>

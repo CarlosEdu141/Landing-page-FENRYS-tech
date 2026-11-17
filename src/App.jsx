@@ -6,7 +6,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { LogoAnimProvider } from './context/LogoAnim';
 import { PageTransitionProvider, usePageTransition } from './context/PageTransition';
 import ScrollProgress from './components/ScrollProgress';
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Ticker from './components/Ticker';
@@ -39,14 +38,11 @@ function Home() {
       <Ticker />
       <About />
       <Suspense fallback={null}>
-        <hr className="section-divider" />
         <Services />
         <ProcessoBuild />
         <hr className="section-divider" />
         <Projects />
-        <hr className="section-divider" />
         <Testimonials />
-        <hr className="section-divider" />
         <Contact />
         <Footer />
       </Suspense>
@@ -96,7 +92,6 @@ function App() {
     <LogoAnimProvider>
       <PageTransitionProvider lenisRef={lenisRef} prefetch={loadHistoria}>
         <ScrollProgress />
-        <CustomCursor />
         <Pages />
       </PageTransitionProvider>
     </LogoAnimProvider>

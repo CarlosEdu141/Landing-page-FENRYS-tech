@@ -3,7 +3,7 @@
 .orb {
   position: absolute;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(124,63,255,0.1) 0%, rgba(79,124,255,0.04) 45%, transparent 65%);
+  background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, rgba(79,124,255,0.04) 45%, transparent 65%);
   border-radius: 50%;
   right: -150px; bottom: -150px;
   pointer-events: none;
@@ -33,18 +33,18 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(79,124,255,0.05);
+  background: color-mix(in srgb, var(--blue) 5%, transparent);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1rem 1.2rem;
   text-decoration: none;
   transition: all 0.2s;
 }
-.channel:hover { border-color: var(--border-hover); background: rgba(79,124,255,0.1); }
+.channel:hover { border-color: var(--border-hover); background: color-mix(in srgb, var(--blue) 10%, transparent); }
 
 .channelIcon {
   width: 44px; height: 44px;
-  background: linear-gradient(135deg, rgba(79,124,255,0.18), rgba(124,63,255,0.18));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 20%, transparent), rgba(124,63,255,0.16));
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -176,3 +176,41 @@
   .grid { grid-template-columns: 1fr; gap: 3rem; }
   .formRow { grid-template-columns: 1fr; }
 }
+/* radar varrendo atrás da coluna de texto */
+.radar {
+  position: absolute;
+  left: -16rem;
+  bottom: -18rem;
+  width: 42rem;
+  height: 42rem;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.radarRing {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--blue) 22%, transparent);
+}
+.radarSweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, color-mix(in srgb, var(--blue) 35%, transparent), transparent 22%);
+  animation: radarSpin 6s linear infinite;
+}
+.blip {
+  position: absolute;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--blue-light);
+  box-shadow: 0 0 10px var(--blue-light);
+  opacity: 0;
+  animation: blip 6s infinite;
+}
+@keyframes radarSpin { to { rotate: 360deg; } }
+@keyframes blip { 0%, 100% { opacity: 0; } 15% { opacity: 1; } 45% { opacity: 0; } }
+.grid { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .radarSweep, .blip { animation: none; } }
+@media (max-width: 900px) { .radar { opacity: 0.3; left: -20rem; } }

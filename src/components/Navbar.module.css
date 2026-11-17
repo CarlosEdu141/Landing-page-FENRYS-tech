@@ -29,7 +29,6 @@
   transform: scale(1.45);
   transform-origin: left center;
   filter: drop-shadow(0 0 12px rgba(79,124,255,0.45));
-  mix-blend-mode: multiply;
 }
 
 :global([data-theme="light"]) .logoImg {

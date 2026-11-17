@@ -2,12 +2,15 @@ import { useEffect, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { useLogoAnim } from '../context/LogoAnim';
 import { usePageTransition } from '../context/PageTransition';
+import ScrubText from './ScrubText';
 import styles from './About.module.css';
 
 const features = [
   'Desenvolvimento Ágil', 'Código de Qualidade', 'Suporte Contínuo',
   'Entrega Rápida', 'IA Integrada', 'Foco no Resultado',
 ];
+
+const HOT = ['Fenrys Tech', 'web e mobile', 'automação de processos', 'resultado'];
 
 export default function About() {
   // useInView original: controla o fade-in do CSS (rings, texto, chips)
@@ -39,7 +42,7 @@ export default function About() {
   }, [triggerFly, triggerReturn]);
 
   return (
-    <section id="sobre" className={`section-padding ${styles.about}`}>
+    <section id="sobre" className={`section-padding tone-violet ${styles.about}`}>
       <div className="container">
         <div className={styles.grid} ref={gridRef}>
 
@@ -78,15 +81,16 @@ export default function About() {
           </div>
 
           <div className={`${styles.text} ${inView ? styles.visible : ''}`}>
-            <div className="section-tag">Quem Somos</div>
+            <div className="section-tag" data-n="01">Quem Somos</div>
             <h2 className="section-title">
               Uma equipe obcecada<br />por resolver problemas
               <span className="gradient-text"> com tecnologia</span>
             </h2>
-            <p className={styles.p1}>
-              A Fenrys Tech é uma software house especializada em criar soluções digitais que realmente funcionam.
-              Do desenvolvimento de aplicações web e mobile à automação de processos — entregamos tecnologia que gera resultado.
-            </p>
+            <ScrubText
+              className={styles.p1}
+              text="A Fenrys Tech é uma software house especializada em criar soluções digitais que realmente funcionam. Do desenvolvimento de aplicações web e mobile à automação de processos — entregamos tecnologia que gera resultado."
+              hot={HOT}
+            />
             <p className={styles.p2}>
               Atendemos desde startups que precisam sair do papel até empresas estabelecidas que buscam modernizar
               seus sistemas. Nossa abordagem é direta: entendemos o problema, desenhamos a solução e executamos com qualidade.

@@ -56,6 +56,8 @@ export default function Hero() {
           <span className={`gradient-text ${styles.accentLine}`}>em Tecnologia Real</span>
         </h1>
 
+        <div className={styles.lower}>
+        <div className={styles.lead}>
         <p className={styles.desc}>
           Desenvolvemos soluções digitais sob medida para empresas, startups e comércios
           que querem crescer com inteligência e velocidade.
@@ -64,6 +66,7 @@ export default function Hero() {
         <div className={styles.buttons}>
           <a href="#projetos" className="btn-primary">Ver Nossos Projetos →</a>
           <a href="#contato" className="btn-secondary">Fale Conosco</a>
+        </div>
         </div>
 
         <div className={styles.statsRow}>
@@ -75,6 +78,7 @@ export default function Hero() {
               <div className={styles.statLabel}>{s.label}</div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>

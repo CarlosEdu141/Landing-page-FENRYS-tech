@@ -1,4 +1,5 @@
 .footer {
+  background: #05060f;
   border-top: 1px solid var(--border);
   position: relative;
   z-index: 1;
@@ -17,7 +18,7 @@
 
 .brand { display: flex; align-items: center; gap: 10px; }
 
-.logo { height: 38px; opacity: 0.8; filter: drop-shadow(0 0 8px rgba(79,124,255,0.3)); mix-blend-mode: multiply; }
+.logo { height: 38px; opacity: 0.8; filter: drop-shadow(0 0 8px rgba(79,124,255,0.3));  }
 
 :global([data-theme="light"]) .logo {
   mix-blend-mode: normal;
@@ -47,4 +48,44 @@
 
 @media (max-width: 680px) {
   .inner { flex-direction: column; align-items: center; text-align: center; }
+}
+:global([data-theme="light"]) .footer { background: #e3e9fc; }
+
+/* wordmark gigante: contorno, e uma lanterna que segue o mouse preenche as letras */
+.giantWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 6% 0;
+  overflow: hidden;
+}
+.giant {
+  --mx: 50%;
+  --my: 50%;
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 15.5vw, 12.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-align: center;
+  user-select: none;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--blue) 35%, transparent);
+  background: radial-gradient(circle 220px at var(--mx) var(--my), var(--accent), var(--blue) 35%, var(--purple) 60%, transparent 75%);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: -webkit-text-stroke-color 0.3s;
+}
+.giantWrap:not(:hover) .giant {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--blue) 12%, transparent), transparent 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@media (hover: none) {
+  .giant {
+    background: linear-gradient(180deg, var(--blue), var(--purple) 70%, transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0.35;
+  }
 }

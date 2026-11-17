@@ -155,7 +155,6 @@ export default function ProcessoBuild() {
       };
 
       /* ── 01 DESCOBERTA ── */
-      tl.addLabel('s0', 0);
       tl.to($('sketchPath'), { strokeDashoffset: 0, duration: 0.7, ease: 'none', stagger: 0.12 }, 0.1);
       tl.to($('postit'), {
         autoAlpha: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(2)', stagger: 0.35,
@@ -175,7 +174,6 @@ export default function ProcessoBuild() {
       tl.to($('wf'), { autoAlpha: 1, scale: 1, duration: 0.5, stagger: 0.09, ease: 'back.out(1.6)' }, T2 + 0.4);
       tl.to($('anno'), { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.08 }, T2 + 1.0);
       tl.to($('chip'), { autoAlpha: 1, x: 0, duration: 0.45, stagger: 0.12, ease: 'back.out(1.8)' }, T2 + 1.0);
-      tl.addLabel('s1', T2 + 0.9);
 
       /* ── 03 DESENVOLVIMENTO ── */
       const T3 = 5.4;
@@ -190,7 +188,6 @@ export default function ProcessoBuild() {
       tl.to($('codeLine'), { clipPath: 'inset(0 0% 0 0)', duration: 0.35, stagger: 0.18, ease: 'none' }, T3 + 0.6);
       tl.to($('termLine'), { autoAlpha: 1, x: 0, duration: 0.25, stagger: 0.2 }, T3 + 1.5);
       tl.to($('buildBar'), { scaleX: 1, duration: 1.8, ease: 'none' }, T3 + 0.4);
-      tl.addLabel('s2', T3 + 1.2);
 
       /* ── 04 LANÇAMENTO ── */
       const T4 = 8.4;
@@ -217,8 +214,15 @@ export default function ProcessoBuild() {
         }, T4 + 1.2);
       tl.to($('metric'), { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.2, ease: 'back.out(1.8)' }, T4 + 1.4);
       tl.to($('chartLine'), { strokeDashoffset: 0, duration: 0.8, ease: 'power1.inOut' }, T4 + 1.7);
-      tl.addLabel('s3', T4 + 1.6);
-      tl.to({}, { duration: 0.8 }); // respiro no fim antes de soltar o pin
+      tl.to({}, { duration: 0.3 }); // respiro curto no fim antes de soltar o pin
+
+      /* pontos de parada do snap: cada etapa já montada por completo */
+      tl.addLabel('d0', 2.2);       // post-its no lugar
+      tl.addLabel('d1', T2 + 1.5);  // anotações e chips visíveis
+      tl.addLabel('d2', T3 + 2.2);  // build concluído
+      tl.addLabel('d3', tl.duration());
+      const dur = tl.duration();
+      const snapPoints = [0, ...[0, 1, 2, 3].map((i) => tl.labels[`d${i}`] / dur)];
 
       /* nós da trilha: ativo / concluído */
       const starts = [0, T2 + 0.3, T3 + 0.3, T4 + 0.3];
@@ -239,9 +243,18 @@ export default function ProcessoBuild() {
       ScrollTrigger.create({
         trigger: stage,
         start: 'top top',
-        end: () => `+=${window.innerHeight * 3}`,
+        end: () => `+=${window.innerHeight * 1.6}`,
         pin: true,
         scrub: 0.6,
+        // um gesto de scroll = uma etapa inteira, animada até o fim
+        snap: {
+          snapTo: snapPoints,
+          directional: true,
+          delay: 0.08,
+          duration: { min: 0.5, max: 1.1 },
+          ease: 'power2.inOut',
+          inertia: false,
+        },
         anticipatePin: 1,
         animation: tl,
         invalidateOnRefresh: true,
@@ -265,7 +278,7 @@ export default function ProcessoBuild() {
     const tl = tlRef.current;
     const st = tl?.scrollTrigger;
     if (!st) return;
-    const time = tl.labels[`s${i}`] ?? 0;
+    const time = tl.labels[`d${i}`] ?? 0;
     const top  = st.start + (st.end - st.start) * (time / tl.duration());
     window.scrollTo({ top, behavior: 'smooth' });
   };
@@ -283,9 +296,9 @@ export default function ProcessoBuild() {
   };
 
   return (
-    <section id="processo" className={styles.section}>
+    <section id="processo" className={`tone-deep ${styles.section}`}>
       <div className={`container ${styles.head}`}>
-        <div className="section-tag">Como Trabalhamos</div>
+        <div className="section-tag" data-n="03">Como Trabalhamos</div>
         <h2 className="section-title">Do Briefing ao <span className="gradient-text">Deploy</span></h2>
         <p className="section-subtitle">
           Role e veja uma ideia virar produto — cada etapa, uma camada a mais de engenharia.

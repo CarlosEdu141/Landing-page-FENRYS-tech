@@ -8,10 +8,10 @@ export default function Testimonials() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section id="depoimentos" className={`section-padding ${styles.section}`}>
+    <section id="depoimentos" className={`section-padding tone-aurora ${styles.section}`}>
       <div className="container">
         <div className={`${styles.header} ${inView ? styles.visible : ''}`} ref={ref}>
-          <div className="section-tag">Depoimentos</div>
+          <div className="section-tag" data-n="05">Depoimentos</div>
           <h2 className="section-title">O que nossos clientes dizem</h2>
         </div>
 

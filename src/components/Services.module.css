@@ -1,3 +1,34 @@
+.section { position: relative; overflow: hidden; }
+.content { position: relative; z-index: 1; }
+
+/* trilhas de circuito do fundo */
+.circuits {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.45;
+  -webkit-mask: radial-gradient(ellipse 75% 70% at 50% 50%, transparent 30%, #000 75%);
+  mask: radial-gradient(ellipse 75% 70% at 50% 50%, transparent 30%, #000 75%);
+}
+.trace {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.2;
+  stroke-dasharray: 8 10;
+  vector-effect: non-scaling-stroke;
+  animation: traceFlow linear infinite;
+}
+.tracePad {
+  fill: none;
+  stroke: var(--blue-light);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+@keyframes traceFlow { to { stroke-dashoffset: -90; } }
+@media (prefers-reduced-motion: reduce) { .trace { animation: none; } }
+
 .header {
   margin-bottom: 3.5rem;
   opacity: 0;
@@ -92,7 +123,7 @@
 
 .card:hover .cardInner {
   border-color: var(--border-hover);
-  box-shadow: 0 16px 48px rgba(79,124,255,0.08), 0 4px 20px rgba(124,63,255,0.08);
+  box-shadow: 0 16px 48px color-mix(in srgb, var(--blue) 10%, transparent), 0 4px 20px rgba(124,63,255,0.08);
 }
 
 .card:hover .cardInner::before { opacity: 1; }
@@ -100,7 +131,7 @@
 .icon {
   width: 54px;
   height: 54px;
-  background: linear-gradient(135deg, rgba(79,124,255,0.18), rgba(124,63,255,0.18));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 18%, transparent), rgba(124,63,255,0.18));
   border: 1px solid var(--border-hover);
   border-radius: 10px;
   display: flex;

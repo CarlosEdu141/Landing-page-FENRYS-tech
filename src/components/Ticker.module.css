@@ -1,47 +1,79 @@
 .ticker {
-  background: linear-gradient(90deg, rgba(79,124,255,0.05), rgba(124,63,255,0.06), rgba(79,124,255,0.05));
-  border-top: 1px solid rgba(124,63,255,0.18);
-  border-bottom: 1px solid rgba(124,63,255,0.18);
-  padding: 1rem 0;
-  overflow: hidden;
   position: relative;
   z-index: 1;
+  height: 11rem;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.tape {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  overflow: hidden;
+  padding: 0.9rem 0;
 }
 
 .track {
   display: flex;
-  animation: scroll 28s linear infinite;
-  white-space: nowrap;
+  gap: 2.4rem;
   width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scroll 40s linear infinite; /* só vale sem JS / movimento reduzido desligado */
 }
 
 .item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 3rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  gap: 2.4rem;
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: clamp(1.25rem, 2.6vw, 2.1rem);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--silver-dim);
+}
+.star { font-size: 0.6em; }
+
+/* fita de trás: só contorno, inclinada pra um lado */
+.outline {
+  top: 3.9rem;
+  rotate: 5deg;
+  border-top: 1px solid rgba(124,63,255,0.35);
+  border-bottom: 1px solid rgba(124,63,255,0.35);
+}
+.outline .item {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(167,139,250,0.55);
 }
 
-.dot {
-  width: 4px; height: 4px;
-  background: var(--purple);
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 6px var(--purple);
+/* fita da frente: cheia, gradiente da marca */
+.solid {
+  top: 3.3rem;
+  rotate: -3deg;
+  background: linear-gradient(90deg, var(--blue), var(--purple) 55%, var(--blue));
+  box-shadow: 0 0 60px -10px rgba(124,63,255,0.6);
 }
+.solid .item { color: #08091a; }
+.solid .star { color: rgba(8,9,26,0.55); }
+
+/* com JS rodando, quem move é o rAF (a animação CSS fica parada) */
+.track[style] { animation: none; }
 
 @keyframes scroll {
-  from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-:global([data-theme="light"]) .ticker {
-  background: linear-gradient(90deg, rgba(61,110,232,0.07), rgba(106,46,232,0.09), rgba(61,110,232,0.07));
-  border-top-color: rgba(61,110,232,0.22);
-  border-bottom-color: rgba(61,110,232,0.22);
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
 }
+
+@media (max-width: 600px) {
+  .ticker { height: 8.5rem; }
+  .outline { top: 2.8rem; }
+  .solid { top: 2.4rem; }
+}
+
+:global([data-theme="light"]) .solid .item { color: #ffffff; }
+:global([data-theme="light"]) .solid .star { color: rgba(255,255,255,0.6); }
+:global([data-theme="light"]) .outline .item { -webkit-text-stroke-color: rgba(106,46,232,0.55); }

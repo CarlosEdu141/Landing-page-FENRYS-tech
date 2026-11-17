@@ -67,12 +67,21 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className={`section-padding ${styles.section}`}>
+    <section id="contato" className={`section-padding tone-signal ${styles.section}`}>
       <div className={styles.orb}></div>
+      <div className={styles.radar} aria-hidden="true">
+        {[1, 0.75, 0.5, 0.25].map((s) => (
+          <div key={s} className={styles.radarRing} style={{ width: `${s * 100}%`, height: `${s * 100}%` }} />
+        ))}
+        <div className={styles.radarSweep} />
+        {[[24, 30], [66, 56], [40, 74]].map(([x, y], i) => (
+          <span key={i} className={styles.blip} style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${i * 1.7}s` }} />
+        ))}
+      </div>
       <div className="container">
         <div className={styles.grid} ref={ref}>
           <div className={`${styles.left} ${inView ? styles.visible : ''}`}>
-            <div className="section-tag">Contato</div>
+            <div className="section-tag" data-n="06">Contato</div>
             <h2 className="section-title">
               Vamos construir<br />
               <span className="gradient-text">algo juntos?</span>
