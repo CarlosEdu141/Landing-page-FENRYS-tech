@@ -31,40 +31,107 @@ export const services = [
   },
 ];
 
+/*
+  Projetos do portfólio.
+  - desc: frase curta do card.
+  - details / features: conteúdo do popup ao clicar no card.
+    TODO(dono): os textos de details/features são um rascunho feito só com o que
+    já estava no site. Revise e complete (problema do cliente, resultados reais).
+  - gallery: prints do projeto. Coloque as imagens em public/projetos/<slug>/
+    e liste aqui, ex.: { src: 'projetos/hydra/dashboard.webp', alt: 'Dashboard' }.
+    Enquanto estiver vazia, o popup mostra quadros provisórios na cor do projeto.
+    Prints de celular (em pé): adicione mobile: true para aparecerem inteiros.
+  - link (opcional): URL pública do projeto → mostra o botão "Acessar projeto".
+  - status (opcional): ex. 'No ar', 'Em desenvolvimento'.
+*/
 export const projects = [
   {
+    slug: 'hydra',
     logo: 'HydraIcon.webp',
     color: '#00e676',
     tag: 'Fintech',
     title: 'Hydra Investimentos',
     desc: 'Aplicação web de gestão financeira pessoal com controle de entradas/saídas, categorização de transações e dashboard de evolução financeira.',
+    details: [
+      'O Hydra é uma aplicação web de gestão financeira pessoal. A ideia é dar ao usuário uma visão clara de para onde o dinheiro vai, sem planilhas.',
+      'Cada entrada e saída é registrada e categorizada, e um dashboard mostra a evolução financeira ao longo do tempo.',
+    ],
+    features: [
+      'Controle de entradas e saídas',
+      'Categorização de transações',
+      'Dashboard de evolução financeira',
+    ],
+    gallery: [
+      { src: 'projetos/hydra/dashboard.webp', alt: 'Painel do Hydra com entradas, saídas fixas e variáveis, saldo livre e gráfico de composição dos gastos' },
+    ],
     techs: ['React', 'Node.js', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #041a08, #082e12)',
   },
   {
+    slug: 'atlanteon',
     logo: 'AtlanteonIcon.webp',
     color: '#3a8ee6',
     tag: 'Fitness & IA',
     title: 'Atlanteon',
     desc: 'Plataforma de gestão de treinos com IA integrada (Hércules), atendendo alunos e professores em perfis distintos.',
+    details: [
+      'O Atlanteon é uma plataforma de gestão de treinos. Nasceu como projeto acadêmico em 2024 e virou o primeiro produto de verdade da equipe.',
+      'Alunos e professores usam a plataforma em perfis distintos, cada um com as telas e permissões do seu papel. O Hércules, agente de IA integrado, apoia o dia a dia dos treinos.',
+    ],
+    features: [
+      'Perfis separados para alunos e professores',
+      'Gestão de treinos',
+      'Hércules: agente de IA integrado à plataforma',
+    ],
+    gallery: [
+      { src: 'projetos/atlanteon/home.webp', alt: 'Tela inicial do app Atlanteon com a semana de treinos, nível de XP e treino do dia', mobile: true },
+      { src: 'projetos/atlanteon/historico.webp', alt: 'Histórico de exercícios de musculação no Atlanteon, separados por grupo muscular', mobile: true },
+    ],
     techs: ['React', 'Node.js', 'AI Agent', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #0a1f44, #14427f)',
   },
   {
+    slug: 'vl-fashion',
     logo: 'V&LFashionLogo.webp',
     color: '#4a7ab5',
     tag: 'E-commerce',
     title: 'V&L Fashion',
     desc: 'E-commerce para loja de moda feminina com funcionalidades completas de vendas e gestão operacional.',
+    details: [
+      'Loja virtual para uma marca de moda feminina, cobrindo tanto o lado de quem compra quanto o de quem administra a loja.',
+      'Além da vitrine e do fluxo de compra, a plataforma reúne a gestão operacional do negócio em um só lugar.',
+    ],
+    features: [
+      'Vitrine e fluxo completo de vendas',
+      'Gestão operacional da loja',
+      'API REST própria',
+    ],
+    gallery: [
+      { src: 'projetos/vl-fashion/home.webp', alt: 'Página inicial da loja V&L Fashion com a campanha de Dia das Mães' },
+    ],
     techs: ['React', 'Node.js', 'API REST', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #1e3a6a, #2b4a7a)',
   },
   {
+    slug: 'use-alps',
     logo: 'UseAlpsLogo.webp',
     color: '#b8475a',
     tag: 'E-commerce',
     title: 'use Alps',
     desc: 'E-commerce de moda feminina de luxo, com vitrine sofisticada que traduz a identidade da marca e gestão completa de vendas.',
+    details: [
+      'E-commerce de moda feminina de luxo. O foco foi uma vitrine sofisticada, que traduz a identidade da marca em cada tela.',
+      'Por trás da vitrine, a loja conta com gestão completa de vendas.',
+    ],
+    features: [
+      'Vitrine com a identidade visual da marca',
+      'Gestão completa de vendas',
+      'API REST própria',
+    ],
+    gallery: [
+      { src: 'projetos/use-alps/home.webp', alt: 'Página inicial da use Alps com o destaque "Peças que fazem histórias" e um look da coleção' },
+      { src: 'projetos/use-alps/colecao.webp', alt: 'Vitrine da coleção verão 2026 da use Alps em fotos estilo polaroid' },
+    ],
     techs: ['React', 'Node.js', 'API REST', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #2a080d, #4e121c)',
   },

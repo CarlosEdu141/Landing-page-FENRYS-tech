@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { projects } from '../data/siteData';
+import ProjectModal from './ProjectModal';
 import styles from './Projects.module.css';
 
 const allCategories = ['Todos', ...new Set(projects.map(p => p.tag))];
@@ -8,6 +9,7 @@ const allCategories = ['Todos', ...new Set(projects.map(p => p.tag))];
 export default function Projects() {
   const [ref, inView] = useInView();
   const [filter, setFilter] = useState('Todos');
+  const [open, setOpen] = useState(null); // { project, el } do card clicado
 
   const filtered = filter === 'Todos' ? projects : projects.filter(p => p.tag === filter);
 
@@ -34,15 +36,29 @@ export default function Projects() {
 
         <div className={styles.grid}>
           {filtered.map((p, i) => (
-            <ProjectCard key={p.title} project={p} delay={i * 70} visible={inView} />
+            <ProjectCard
+              key={p.title}
+              project={p}
+              delay={i * 70}
+              visible={inView}
+              onOpen={(el) => setOpen({ project: p, el })}
+            />
           ))}
         </div>
       </div>
+
+      {open && (
+        <ProjectModal
+          project={open.project}
+          originEl={open.el}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </section>
   );
 }
 
-function ProjectCard({ project, delay, visible }) {
+function ProjectCard({ project, delay, visible, onOpen }) {
   const cardRef = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -67,6 +83,14 @@ function ProjectCard({ project, delay, visible }) {
       style={{ '--accent': project.color, transitionDelay: `${delay}ms` }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      role="button"
+      tabIndex={0}
+      aria-haspopup="dialog"
+      aria-label={`Ver detalhes do projeto ${project.title}`}
+      onClick={() => onOpen(cardRef.current)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(cardRef.current); }
+      }}
     >
       <div className={styles.thumb} style={{ background: project.gradient }}>
         <img src={`${import.meta.env.BASE_URL}${project.logo}`} alt={project.title} className={styles.logo} loading="lazy" />
@@ -80,6 +104,9 @@ function ProjectCard({ project, delay, visible }) {
             <span key={t} className={styles.tech}>{t}</span>
           ))}
         </div>
+        <span className={styles.more} aria-hidden="true">
+          Ver detalhes <span className={styles.moreArrow}>→</span>
+        </span>
       </div>
     </div>
   );

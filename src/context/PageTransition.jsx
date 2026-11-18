@@ -240,8 +240,19 @@ export function PageTransitionProvider({ lenisRef, prefetch, children }) {
     return () => window.removeEventListener('popstate', onPop);
   }, [switchPage, scrollToTarget]);
 
+  /* Trava/destrava o scroll da página (usado por popups como o de projetos) */
+  const setScrollLocked = useCallback((locked) => {
+    const lenis = lenisRef.current;
+    if (lenis) { if (locked) lenis.stop(); else lenis.start(); }
+    const html = document.documentElement;
+    // compensa a barra de rolagem que some, para o layout não "pular"
+    const gap = locked ? window.innerWidth - html.clientWidth : 0;
+    html.style.overflow = locked ? 'hidden' : '';
+    document.body.style.paddingRight = gap ? `${gap}px` : '';
+  }, [lenisRef]);
+
   return (
-    <Ctx.Provider value={{ page, goToHistory, goHome, notifyPageReady }}>
+    <Ctx.Provider value={{ page, goToHistory, goHome, notifyPageReady, setScrollLocked }}>
       {children}
     </Ctx.Provider>
   );
