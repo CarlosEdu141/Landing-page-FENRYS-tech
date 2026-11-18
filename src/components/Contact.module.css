@@ -198,7 +198,8 @@
   inset: 0;
   border-radius: 50%;
   background: conic-gradient(from 0deg, color-mix(in srgb, var(--blue) 35%, transparent), transparent 22%);
-  animation: radarSpin 6s linear infinite;
+  /* anti-horário: a borda forte (0deg) vai na frente e o rastro fica atrás */
+  animation: radarSpin 6s linear infinite reverse;
 }
 .blip {
   position: absolute;
@@ -210,7 +211,8 @@
   animation: blip 6s infinite;
 }
 @keyframes radarSpin { to { rotate: 360deg; } }
-@keyframes blip { 0%, 100% { opacity: 0; } 15% { opacity: 1; } 45% { opacity: 0; } }
+/* acende no instante em que o feixe passa (o atraso vem do JSX) e some devagar */
+@keyframes blip { 0% { opacity: 0; } 2% { opacity: 1; } 40%, 100% { opacity: 0; } }
 .grid { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) { .radarSweep, .blip { animation: none; } }
 @media (max-width: 900px) { .radar { opacity: 0.3; left: -20rem; } }

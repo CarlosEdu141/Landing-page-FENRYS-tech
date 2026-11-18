@@ -8,7 +8,15 @@ const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
 const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+// Radar gira no sentido anti-horário (6s por volta). Cada ponto acende
+// no instante em que o feixe passa por ele: ângulo horário a partir do topo.
+const RADAR_DUR = 6;
+const blipDelay = (x, y) => {
+  const deg = (Math.atan2(x - 50, 50 - y) * 180 / Math.PI + 360) % 360;
+  return +(((360 - deg) % 360) / 360 * RADAR_DUR).toFixed(2);
+};
+
+const isValidEmail =email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
 const projectTypes = [
   'Sistema Web', 'App Mobile', 'E-commerce',
@@ -75,7 +83,7 @@ export default function Contact() {
         ))}
         <div className={styles.radarSweep} />
         {[[24, 30], [66, 56], [40, 74]].map(([x, y], i) => (
-          <span key={i} className={styles.blip} style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${i * 1.7}s` }} />
+          <span key={i} className={styles.blip} style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${blipDelay(x, y)}s` }} />
         ))}
       </div>
       <div className="container">
