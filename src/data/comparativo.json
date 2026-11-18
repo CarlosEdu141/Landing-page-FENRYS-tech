@@ -1,0 +1,173 @@
+{
+  "_obs": "Fonte de verdade do conteúdo. status: ok = atende, mid = atende em parte, no = não atende. O placar conta apenas 'ok'.",
+  "chip": "Antes de decidir",
+  "titulo": "Três jeitos de tirar seu sistema do papel.",
+  "titulo_destaque": "Só um aguenta o uso real.",
+  "texto": "Um freelancer começa rápido. Uma IA gera telas em minutos. O que separa um protótipo de um sistema",
+  "texto_destaque": "só fica claro quando chegam os usuários, os dados e os problemas de verdade.",
+  "colunas": [
+    {
+      "id": "fenrys",
+      "etiqueta": "Sob medida",
+      "nome": "Fenrys Tech",
+      "destaque": true
+    },
+    {
+      "id": "freelancer",
+      "etiqueta": "// dev particular",
+      "nome": "Freelancer"
+    },
+    {
+      "id": "ia",
+      "etiqueta": "// gerado por IA",
+      "nome": "Plataforma de IA"
+    }
+  ],
+  "criterios": [
+    {
+      "criterio": "Primeira tela no ar",
+      "detalhe": null,
+      "icone": "zap",
+      "fenrys": {
+        "status": "mid",
+        "texto": "Primeiro entendemos seu processo; as telas chegam em dias"
+      },
+      "freelancer": {
+        "status": "ok",
+        "texto": "Começa a programar praticamente no mesmo dia"
+      },
+      "ia": {
+        "status": "ok",
+        "texto": "Telas geradas em poucos minutos"
+      }
+    },
+    {
+      "criterio": "Regras do seu negócio",
+      "detalhe": null,
+      "icone": "layers",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Mapeadas com você antes de escrever código"
+      },
+      "freelancer": {
+        "status": "mid",
+        "texto": "Entendidas aos poucos, conforme as dúvidas surgem"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "A IA deduz; exceções e casos reais ficam de fora"
+      }
+    },
+    {
+      "criterio": "Banco de dados",
+      "detalhe": null,
+      "icone": "db",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Modelado e revisado antes da primeira linha de código"
+      },
+      "freelancer": {
+        "status": "no",
+        "texto": "Cresce no improviso, conforme o projeto avança"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "Montado automaticamente; os erros surgem quando os dados crescem"
+      }
+    },
+    {
+      "criterio": "Integrações",
+      "detalhe": "pagamento, frete, WhatsApp, ERP",
+      "icone": "plug",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Implementadas, testadas e com cada etapa registrada"
+      },
+      "freelancer": {
+        "status": "mid",
+        "texto": "Funcionam, mas o conhecimento fica só com quem fez"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "Costumam travar fora do ambiente de demonstração"
+      }
+    },
+    {
+      "criterio": "Segurança e LGPD",
+      "detalhe": null,
+      "icone": "shield",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Perfis de acesso e histórico de ações desde a 1ª versão"
+      },
+      "freelancer": {
+        "status": "no",
+        "texto": "Fica para o final, se der tempo"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "Raramente vem com controle de acesso e proteção de dados"
+      }
+    },
+    {
+      "criterio": "Pronto para crescer",
+      "detalhe": "mais usuários, mais dados",
+      "icone": "gauge",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Arquitetura pensada para aguentar o uso diário e o crescimento"
+      },
+      "freelancer": {
+        "status": "mid",
+        "texto": "Depende da experiência de quem fez"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "Feito para demonstrar, não para operar todos os dias"
+      }
+    },
+    {
+      "criterio": "Quando algo para de funcionar",
+      "detalhe": null,
+      "icone": "wrench",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Uma equipe que conhece o seu sistema resolve, aqui em Goiânia"
+      },
+      "freelancer": {
+        "status": "no",
+        "texto": "Depende da agenda e da disponibilidade de uma pessoa"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "Você e um chat tentando adivinhar o problema"
+      }
+    },
+    {
+      "criterio": "Custo ao longo do tempo",
+      "detalhe": null,
+      "icone": "wallet",
+      "fenrys": {
+        "status": "ok",
+        "texto": "Previsível: escopo fechado e entregas combinadas por etapa"
+      },
+      "freelancer": {
+        "status": "no",
+        "texto": "Cada ajuste vira uma nova cobrança"
+      },
+      "ia": {
+        "status": "no",
+        "texto": "Créditos e assinatura que sobem a cada correção"
+      }
+    }
+  ],
+  "placar": {
+    "titulo": "Placar",
+    "detalhe": "critérios atendidos por completo"
+  },
+  "cta": {
+    "texto": "Quero entender o meu caso",
+    "link": "https://wa.me/5562984005699?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Fenrys%20Tech%20e%20gostaria%20de%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20projeto.",
+    "nota": "Conversa sem compromisso. Você sai sabendo qual caminho faz sentido, mesmo que não seja o nosso."
+  }
+}

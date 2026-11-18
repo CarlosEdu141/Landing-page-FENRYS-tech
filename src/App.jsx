@@ -14,6 +14,7 @@ import About from './components/About';
 // Seções abaixo do fold — carregadas só quando necessário
 const Services          = lazy(() => import('./components/Services'));
 const ProcessoBuild     = lazy(() => import('./components/ProcessoBuild'));
+const Comparativo       = lazy(() => import('./components/Comparativo'));
 const Projects          = lazy(() => import('./components/Projects'));
 const Testimonials      = lazy(() => import('./components/Testimonials'));
 const Contact           = lazy(() => import('./components/Contact'));
@@ -40,6 +41,7 @@ function Home() {
       <Suspense fallback={null}>
         <Services />
         <ProcessoBuild />
+        <Comparativo />
         <hr className="section-divider" />
         <Projects />
         <Testimonials />

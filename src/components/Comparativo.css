@@ -1,0 +1,349 @@
+/* Seção comparativa — Fenrys Tech | temas escuro (padrão) e claro */
+  @property --fx-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+  /* =========================================================
+     TEMA ESCURO (padrão)
+     ========================================================= */
+  .fx-c {
+    /* cores mapeadas para as variáveis da marca (src/index.css) */
+    --fx-bg: var(--navy);
+    --fx-surface: #0c0c24;
+    --fx-line: rgba(139, 120, 255, .13);
+    --fx-text: #ecebf8;
+    --fx-muted: #9394b8;
+    --fx-cyan: var(--accent);
+    --fx-purple: var(--purple);
+    --fx-blue: var(--blue);
+    /* status */
+    --fx-ok: var(--accent);
+    --fx-no: #fb7185;
+    --fx-mid: #a78bfa;
+    /* superfícies */
+    --fx-grid: rgba(139,120,255,.045);
+    --fx-glow-1: rgba(91,108,255,.16);
+    --fx-glow-2: rgba(34,211,238,.10);
+    --fx-chip-bg: rgba(12,12,36,.7);
+    --fx-table-bg: linear-gradient(180deg, rgba(12,12,36,.85), rgba(12,12,36,.55));
+    --fx-table-shadow: none;
+    --fx-col-bg: linear-gradient(180deg, #13123a, #0e0d2c);
+    --fx-col-ring: rgba(139,92,246,.25);
+    --fx-col-shadow: 0 30px 80px -30px rgba(139,92,246,.55);
+    --fx-scan: rgba(34,211,238,.18);
+    --fx-spot: radial-gradient(closest-side, rgba(139,92,246,.16), rgba(34,211,238,.05) 55%, transparent);
+    --fx-us-line: rgba(139,92,246,.18);
+    --fx-hover-bg: rgba(255,255,255,.022);
+    --fx-hover-text: #b9bad6;
+    --fx-label-bg: rgba(255,255,255,.02);
+    /* marca */
+    --fx-title-grad: linear-gradient(90deg, #22d3ee, #7aa2ff 45%, #8b5cf6);
+    --fx-brand: #ffffff;
+    --fx-brand-em: var(--accent);
+    --fx-pill-text: #dcd6ff;
+    --fx-pill-bg: rgba(139,92,246,.18);
+    --fx-pill-border: rgba(139,92,246,.4);
+    --fx-crit: #a78bfa;
+    --fx-us-ok-bg: linear-gradient(135deg, #22d3ee, #7aa2ff);
+    --fx-us-ok-fg: #06061a;
+    --fx-us-ok-glow: 0 0 20px -2px rgba(34,211,238,.6);
+    --fx-bar-track: rgba(255,255,255,.06);
+    --fx-bar-fill: rgba(147,148,184,.55);
+    --fx-bar-us: linear-gradient(90deg, #22d3ee, #8b5cf6);
+    --fx-btn-shadow: 0 14px 40px -10px rgba(139,92,246,.7);
+    /* tipografia */
+    /* fontes que o site já carrega (Orbitron + Rajdhani); mono do sistema */
+    --fx-font-title: 'Orbitron', sans-serif;
+    --fx-font-body: 'Rajdhani', sans-serif;
+    --fx-font-mono: ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    /* curvas */
+    --fx-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+    position: relative; isolation: isolate; overflow: hidden;
+    padding: 120px 24px;
+    background: var(--fx-bg);
+    color: var(--fx-text);
+    font-family: var(--fx-font-body);
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+  /* =========================================================
+     TEMA CLARO
+     Ajuste a 1ª linha de seletores para o jeito que o seu site
+     marca o modo claro (classe ou atributo no <html> ou <body>).
+     ========================================================= */
+  /* o site marca o tema com data-theme no <html> (hooks/useTheme.js) */
+  html[data-theme="light"] .fx-c {
+    --fx-bg: var(--navy);
+    --fx-surface: #ffffff;
+    --fx-line: rgba(76, 70, 160, .12);
+    --fx-text: #16163a;
+    --fx-muted: #5c5e7e;
+    --fx-cyan: #007a9c;   /* --accent escurecido p/ contraste ≥ 4.5:1 em texto */
+    --fx-purple: var(--purple);
+    --fx-blue: var(--blue);
+    --fx-ok: #0e7490;
+    --fx-no: #e11d48;
+    --fx-mid: #7c3aed;
+    --fx-grid: rgba(79,70,229,.055);
+    --fx-glow-1: rgba(99,102,241,.14);
+    --fx-glow-2: rgba(6,182,212,.12);
+    --fx-chip-bg: #ffffff;
+    --fx-table-bg: #ffffff;
+    --fx-table-shadow: 0 1px 2px rgba(22,22,58,.04), 0 24px 60px -30px rgba(49,46,129,.25);
+    --fx-col-bg: linear-gradient(180deg, #f3f1ff, #eef5ff);
+    --fx-col-ring: rgba(124,58,237,.22);
+    --fx-col-shadow: 0 30px 70px -30px rgba(124,58,237,.35);
+    --fx-scan: rgba(8,145,178,.10);
+    --fx-spot: radial-gradient(closest-side, rgba(124,58,237,.08), rgba(8,145,178,.04) 55%, transparent);
+    --fx-us-line: rgba(124,58,237,.14);
+    --fx-hover-bg: rgba(79,91,255,.035);
+    --fx-hover-text: #3c3e5e;
+    --fx-label-bg: #fafaff;
+    --fx-title-grad: linear-gradient(90deg, #0891b2, #4f5bff 45%, #7c3aed);
+    --fx-brand: #16163a;
+    --fx-brand-em: #0891b2;
+    --fx-pill-text: #5b21b6;
+    --fx-pill-bg: rgba(124,58,237,.08);
+    --fx-pill-border: rgba(124,58,237,.3);
+    --fx-crit: #6d28d9;
+    --fx-us-ok-bg: linear-gradient(135deg, #06b6d4, #6366f1);
+    --fx-us-ok-fg: #ffffff;
+    --fx-us-ok-glow: 0 4px 14px -4px rgba(79,70,229,.55);
+    --fx-bar-track: #e8e9f5;
+    --fx-bar-fill: #a5a7c4;
+    --fx-bar-us: linear-gradient(90deg, #06b6d4, #7c3aed);
+    --fx-btn-shadow: 0 14px 34px -12px rgba(79,70,229,.55);
+  }
+
+  .fx-c * { box-sizing: border-box; }
+
+  /* Fundo: grade técnica + brilhos */
+  .fx-c::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(40% 35% at 15% 20%, var(--fx-glow-1), transparent 70%),
+      radial-gradient(35% 30% at 90% 85%, var(--fx-glow-2), transparent 70%),
+      linear-gradient(var(--fx-grid) 1px, transparent 1px) 0 0 / 56px 56px,
+      linear-gradient(90deg, var(--fx-grid) 1px, transparent 1px) 0 0 / 56px 56px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 15%, #000 85%, transparent);
+            mask-image: linear-gradient(180deg, transparent, #000 15%, #000 85%, transparent);
+  }
+
+  .fx-c__wrap { max-width: 1160px; margin: 0 auto; }
+
+  /* ---------- Cabeçalho ---------- */
+  .fx-c__head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: end; margin-bottom: 64px; }
+  .fx-c__chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 14px; border-radius: 6px; border: 1px solid var(--fx-line);
+    background: var(--fx-chip-bg);
+    font-family: var(--fx-font-mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--fx-cyan);
+  }
+  .fx-c__chip i {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--fx-cyan);
+    animation: fx-ping 2.4s var(--fx-ease-out) infinite;
+  }
+  @keyframes fx-ping {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--fx-cyan) 55%, transparent); }
+    70%, 100% { box-shadow: 0 0 0 9px transparent; }
+  }
+
+  .fx-c__title {
+    font-family: var(--fx-font-title); font-weight: 700;
+    font-size: clamp(30px, 4.3vw, 52px); line-height: 1.08; letter-spacing: -.01em;
+    margin: 22px 0 0;
+  }
+  .fx-c__title span {
+    background: var(--fx-title-grad); background-size: 200% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: fx-shine 6s ease-in-out infinite alternate;
+  }
+  @keyframes fx-shine { to { background-position: 100% 0; } }
+  .fx-c__lead { margin: 0; color: var(--fx-muted); font-size: 18.5px; line-height: 1.6; font-weight: 400; }
+  .fx-c__lead b { color: var(--fx-text); font-weight: 500; }
+
+  /* ---------- Tabela ---------- */
+  .fx-c__table {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 1.2fr 1fr 1fr;
+    grid-template-rows: repeat(10, auto);
+    border-radius: 22px;
+    background: var(--fx-table-bg);
+    border: 1px solid var(--fx-line);
+    box-shadow: var(--fx-table-shadow);
+  }
+  .fx-c__row { display: contents; }
+
+  /* Luz que segue o mouse */
+  .fx-c__clip { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; z-index: 0; }
+  .fx-c__spot {
+    position: absolute; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
+    border-radius: 50%; pointer-events: none; opacity: 0;
+    background: var(--fx-spot);
+    transition: opacity 400ms ease;
+  }
+  .fx-c__table.is-lit .fx-c__spot { opacity: 1; }
+
+  /* Coluna Fenrys: borda em degradê girando */
+  .fx-c__col {
+    grid-column: 2; grid-row: 1 / -1;
+    position: relative; z-index: 0; margin: -14px 4px;
+    border-radius: 20px;
+    border: 1.5px solid transparent;
+    background:
+      var(--fx-col-bg) padding-box,
+      conic-gradient(from var(--fx-angle),
+        var(--fx-col-ring) 0deg, var(--fx-col-ring) 200deg,
+        var(--fx-cyan) 260deg, var(--fx-purple) 310deg, var(--fx-col-ring) 360deg) border-box;
+    box-shadow: var(--fx-col-shadow);
+    animation: fx-spin 7s linear infinite;
+    overflow: hidden;
+  }
+  @keyframes fx-spin { to { --fx-angle: 360deg; } }
+  .fx-c__col::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 140px;
+    background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--fx-scan) 40%, transparent) 60%, var(--fx-scan) 98%, transparent);
+    transform: translateY(-140px);
+    animation: fx-scan 5.5s cubic-bezier(.45,0,.55,1) infinite 1.2s;
+  }
+  @keyframes fx-scan { 0% { transform: translateY(-140px); } 60%, 100% { transform: translateY(1400px); } }
+
+  /* Células */
+  .fx-c__cell {
+    position: relative; z-index: 1;
+    padding: 24px 22px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 11px;
+    font-size: 16px; line-height: 1.45; color: var(--fx-muted);
+    border-top: 1px solid var(--fx-line);
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  .fx-c__row--head .fx-c__cell { border-top: 0; }
+  .fx-c__cell.is-us { color: var(--fx-text); font-weight: 500; border-top-color: var(--fx-us-line); }
+  .fx-c__cell--label {
+    flex-direction: row; align-items: center; text-align: left; gap: 14px;
+    color: var(--fx-text); font-weight: 600; font-size: 17px; padding-left: 28px;
+  }
+  .fx-c__cell--label small { display: block; font-weight: 400; color: var(--fx-muted); font-size: 13.5px; margin-top: 2px; }
+  .fx-c__crit {
+    width: 36px; height: 36px; flex-shrink: 0; border-radius: 10px;
+    display: grid; place-items: center; color: var(--fx-crit);
+    background: color-mix(in srgb, var(--fx-purple) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--fx-purple) 22%, transparent);
+    transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .fx-c__crit svg { width: 17px; height: 17px; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .fx-c__row.is-hover .fx-c__cell:not(.is-us) { background-color: var(--fx-hover-bg); color: var(--fx-hover-text); }
+    .fx-c__row.is-hover .fx-c__crit {
+      color: var(--fx-ok);
+      background: color-mix(in srgb, var(--fx-ok) 10%, transparent);
+      border-color: color-mix(in srgb, var(--fx-ok) 35%, transparent);
+      box-shadow: 0 0 18px -4px color-mix(in srgb, var(--fx-ok) 60%, transparent);
+    }
+    .fx-c__row.is-hover .fx-c__cell.is-us .fx-ic { transform: scale(1.12); }
+  }
+
+  /* Cabeçalho das colunas */
+  .fx-c__row--head .fx-c__cell { padding-top: 30px; padding-bottom: 26px; justify-content: flex-end; }
+  .fx-c__colname { font-weight: 700; font-size: 16.5px; color: var(--fx-text); }
+  .fx-c__coltag { font-family: var(--fx-font-mono); font-size: 11px; color: var(--fx-muted); letter-spacing: .06em; }
+  .fx-c__th-first { align-items: flex-start !important; text-align: left !important; padding-left: 28px !important; }
+  .fx-c__brand { font-family: var(--fx-font-title); font-weight: 900; font-size: 22px; letter-spacing: .06em; color: var(--fx-brand); }
+  .fx-c__brand em { font-style: normal; color: var(--fx-brand-em); }
+  .fx-c__pill {
+    font-family: var(--fx-font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 999px; color: var(--fx-pill-text);
+    background: var(--fx-pill-bg); border: 1px solid var(--fx-pill-border);
+  }
+
+  /* Ícones de status */
+  .fx-ic {
+    width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+    display: grid; place-items: center;
+    transition: transform 200ms var(--fx-ease-out);
+  }
+  .fx-ic svg { width: 15px; height: 15px; }
+  .fx-ic--ok  { color: var(--fx-ok);  background: color-mix(in srgb, var(--fx-ok) 10%, transparent);  border: 1px solid color-mix(in srgb, var(--fx-ok) 32%, transparent); }
+  .fx-ic--no  { color: var(--fx-no);  background: color-mix(in srgb, var(--fx-no) 8%, transparent);   border: 1px solid color-mix(in srgb, var(--fx-no) 28%, transparent); }
+  .fx-ic--mid { color: var(--fx-mid); background: color-mix(in srgb, var(--fx-mid) 8%, transparent);  border: 1px solid color-mix(in srgb, var(--fx-mid) 30%, transparent); }
+  .is-us .fx-ic--ok { color: var(--fx-us-ok-fg); border: 0; background: var(--fx-us-ok-bg); box-shadow: var(--fx-us-ok-glow); }
+  .fx-ic--ok path { stroke-dasharray: 24; stroke-dashoffset: 0; }
+
+  /* Placar */
+  .fx-c__row--score .fx-c__cell { padding-top: 26px; padding-bottom: 30px; gap: 10px; }
+  .fx-c__num { font-family: var(--fx-font-title); font-weight: 700; font-size: 26px; color: var(--fx-text); line-height: 1; }
+  .fx-c__num small { font-size: 14px; color: var(--fx-muted); font-weight: 600; }
+  .is-us .fx-c__num { background: var(--fx-bar-us); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .fx-c__bar { width: 100%; max-width: 170px; height: 6px; border-radius: 99px; background: var(--fx-bar-track); overflow: hidden; }
+  .fx-c__bar span {
+    /* largura final (scaleX) vem do componente; o GSAP anima a partir de 0 */
+    display: block; height: 100%; border-radius: inherit; transform-origin: left center;
+    background: var(--fx-bar-fill);
+  }
+  .is-us .fx-c__bar span { background: var(--fx-bar-us); box-shadow: 0 0 12px color-mix(in srgb, var(--fx-cyan) 45%, transparent); }
+
+  .fx-c__who { display: none; }
+
+  /* ---------- Entrada ao rolar ----------
+     Feita com GSAP + ScrollTrigger em Comparativo.jsx. O CSS guarda só o
+     estado FINAL, então sem JS ou com movimento reduzido tudo já aparece. */
+
+  /* ---------- CTA ---------- */
+  .fx-c__cta { display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 56px; }
+  .fx-c__btn {
+    position: relative; display: inline-flex; align-items: center; gap: 12px; overflow: hidden;
+    padding: 17px 30px; border-radius: 10px; text-decoration: none;
+    font-weight: 700; font-size: 14.5px; letter-spacing: .14em; text-transform: uppercase; color: #fff;
+    background: linear-gradient(135deg, var(--fx-blue), var(--fx-purple));
+    box-shadow: var(--fx-btn-shadow), inset 0 1px 0 rgba(255,255,255,.2);
+    transition: transform 160ms var(--fx-ease-out), box-shadow 200ms ease;
+  }
+  .fx-c__btn::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%);
+    transform: translateX(-100%);
+  }
+  .fx-c__btn svg { width: 18px; height: 18px; transition: transform 200ms var(--fx-ease-out); }
+  .fx-c__btn:active { transform: scale(.97); }
+  .fx-c__btn:focus-visible { outline: 2px solid var(--fx-cyan); outline-offset: 3px; }
+  @media (hover: hover) and (pointer: fine) {
+    .fx-c__btn:hover::before { transform: translateX(100%); transition: transform 700ms var(--fx-ease-out); }
+    .fx-c__btn:hover svg { transform: translateX(3px); }
+  }
+  .fx-c__cta-note { color: var(--fx-muted); font-size: 15.5px; max-width: 340px; line-height: 1.5; }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width: 980px) { .fx-c__head { grid-template-columns: 1fr; gap: 18px; } }
+  @media (max-width: 860px) {
+    .fx-c { padding: 84px 16px; }
+    .fx-c__table { display: block; background: none; border: 0; box-shadow: none; }
+    .fx-c__col, .fx-c__spot, .fx-c__clip, .fx-c__row.fx-c__row--head { display: none; }
+    .fx-c__row {
+      display: block; margin-bottom: 14px; border-radius: 16px; overflow: hidden;
+      background: var(--fx-surface); border: 1px solid var(--fx-line); box-shadow: var(--fx-table-shadow);
+    }
+    .fx-c__cell { flex-direction: row; align-items: flex-start; text-align: left; gap: 14px; padding: 14px 18px; border-top: 1px solid var(--fx-line); }
+    .fx-c__row .fx-c__cell:first-child { border-top: 0; }
+    .fx-c__cell--label { padding: 16px 18px; align-items: center; background: var(--fx-label-bg); }
+    .fx-c__cell.is-us {
+      background: linear-gradient(90deg, color-mix(in srgb, var(--fx-blue) 14%, transparent), color-mix(in srgb, var(--fx-purple) 4%, transparent));
+      box-shadow: inset 3px 0 0 var(--fx-purple);
+    }
+    .fx-c__who {
+      display: block; font-family: var(--fx-font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--fx-muted); margin-bottom: 3px; font-weight: 500;
+    }
+    .is-us .fx-c__who { color: var(--fx-cyan); }
+    .fx-c__row--score .fx-c__cell { padding: 14px 18px; flex-direction: column; gap: 8px; }
+    .fx-c__row--score .fx-c__cell--label { flex-direction: row; }
+    .fx-c__bar { max-width: none; }
+    .fx-c__cta { flex-direction: column; text-align: center; }
+    .fx-c__btn { width: 100%; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fx-c *, .fx-c *::before, .fx-c *::after { animation: none !important; }
+    .fx-c__col::after { display: none; }
+  }
