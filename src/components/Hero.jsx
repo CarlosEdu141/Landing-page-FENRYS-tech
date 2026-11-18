@@ -1,28 +1,33 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { stats } from '../data/siteData';
 import styles from './Hero.module.css';
 
-function StatCounter({ num, active }) {
-  const match = useRef(num.match(/^(\d+)(.*)/));
-  const [val, setVal] = useState(() => {
-    const m = match.current;
-    return m ? '0' + m[2] : num;
-  });
-  const ran = useRef(false);
+const NUM_RE = /^(\d+)(.*)/;
 
+function StatCounter({ num, active }) {
+  // Começa já no valor final. O "0" só aparece quando a contagem de fato
+  // está rodando, então se a animação não acontecer o número certo fica na tela.
+  const [val, setVal] = useState(num);
+
+  // Sem trava "já rodou": se o efeito for refeito (hot reload, StrictMode),
+  // a contagem recomeça em vez de ficar parada no 0.
   useEffect(() => {
-    const m = match.current;
-    if (!active || ran.current || !m) return;
-    ran.current = true;
+    const m = num.match(NUM_RE);
+    if (!active || !m || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const target = +m[1], suffix = m[2];
     const t0 = performance.now(), dur = 1600;
+    let raf;
     const tick = (t) => {
-      const p = Math.min((t - t0) / dur, 1);
+      const p = Math.min(Math.max((t - t0) / dur, 0), 1);
       const ease = 1 - Math.pow(1 - p, 3);
       setVal(p === 1 ? num : Math.round(target * ease) + suffix);
-      if (p < 1) requestAnimationFrame(tick);
+      if (p < 1) raf = requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    raf = requestAnimationFrame(tick);
+    // Garantia: se o navegador não rodar os frames (aba em segundo plano,
+    // economia de energia, pré-visualização), mostra o número final mesmo assim.
+    const done = setTimeout(() => { cancelAnimationFrame(raf); setVal(num); }, dur + 150);
+    return () => { cancelAnimationFrame(raf); clearTimeout(done); };
   }, [active, num]);
 
   return <>{val}</>;
